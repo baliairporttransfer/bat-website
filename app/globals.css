@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; }
+body { background: #ffffff; color: #08142B; }
+::selection { background: #D4AF37; color: #08142B; }
+
+@layer components {
+  .field-label { @apply mb-2 block text-sm font-semibold text-navy-900; }
+  .field-input { @apply h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm text-navy-900 outline-none transition placeholder:text-slate-400 focus:border-gold-500 focus:ring-4 focus:ring-gold-500/10; }
+}

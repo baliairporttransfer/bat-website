@@ -1,0 +1,11 @@
+import Image from "next/image";
+import { ArrowRight, Clock3 } from "lucide-react";
+import { Container } from "@/components/Container";
+import { SectionHeading } from "@/components/SectionHeading";
+import { destinations } from "@/data/destinations";
+import { formatIDR } from "@/lib/utils";
+
+export function Destinations() {
+  const featured = destinations.filter((item) => ["kuta", "canggu", "ubud", "uluwatu", "bedugul", "amed"].includes(item.id));
+  return <section id="prices" className="bg-slate-50 py-20 sm:py-28"><Container><SectionHeading eyebrow="Popular routes" title="Fixed airport transfer prices" description="Select your destination in the booking form for an instant estimate. Prices below are per private vehicle." /><div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{featured.map((item) => <article key={item.id} className="group overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200"><div className="relative h-52 overflow-hidden"><Image src={item.image} alt={item.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" /></div><div className="p-6"><p className="text-xs font-bold uppercase tracking-widest text-gold-600">{item.area}</p><h3 className="mt-2 text-xl font-bold text-navy-900">{item.name}</h3><div className="mt-4 flex items-center justify-between"><span className="text-lg font-bold text-navy-900">{formatIDR(item.price)}</span><span className="flex items-center gap-1 text-sm text-slate-500"><Clock3 size={15} />{item.travelTime}</span></div><a href="#booking" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy-900">Book this route <ArrowRight size={16} /></a></div></article>)}</div><div className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white"><div className="grid grid-cols-[1fr_auto] bg-navy-900 px-5 py-4 text-sm font-bold text-white"><span>Destination</span><span>From airport</span></div>{destinations.map((item) => <div key={item.id} className="grid grid-cols-[1fr_auto] gap-4 border-t border-slate-100 px-5 py-4 text-sm"><span className="font-medium text-navy-900">{item.name}</span><span className="font-bold text-navy-900">{formatIDR(item.price)}</span></div>)}</div></Container></section>;
+}
