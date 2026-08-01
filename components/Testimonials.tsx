@@ -47,7 +47,7 @@ export function Testimonials() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur transition hover:bg-white/10"
           >
-            See All 183+ Reviews on Google Maps ↗
+            See All 1326+ Reviews on Google Maps ↗
           </a>
         </div>
       </Container>
