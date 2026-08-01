@@ -12,7 +12,7 @@ export function Navbar() {
   return (
     <header className="absolute inset-x-0 top-0 z-50 border-b border-white/10 bg-navy-900/45 backdrop-blur-md">
       <Container className="flex h-20 items-center justify-between">
-        <Link href="#top" aria-label="Bali Airport Transfer home" className="relative h-14 w-32 shrink-0">
+        <Link href="#top" aria-label="Bali Airport Transfer home" className="relative h-20 w-44 shrink-0">
           <Image src="/logo/bat-logo.png" alt="BAT Bali Airport Transfer" fill className="object-contain" priority />
         </Link>
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary navigation">
