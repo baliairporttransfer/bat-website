@@ -1,7 +1,7 @@
 import React from "react";
 import { destinations } from "@/data/destinations";
 
-export default function PopularDestinations() {
+export default function Destinations() {
   return (
     <section className="py-16 bg-gray-50" id="destinations">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,7 +11,7 @@ export default function PopularDestinations() {
             Popular Destinations & Transfers
           </h2>
           <p className="mt-3 text-lg text-gray-600">
-            Jelajahi seluruh rute dan destinasi terbaik di Bali dengan layanan transportasi terpercaya kami.
+            Jelajahi seluruh rute dan destinasi terbaik di Bali bersama layanan transportasi terpercaya kami.
           </p>
         </div>
 
