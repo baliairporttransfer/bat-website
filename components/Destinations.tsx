@@ -1,11 +1,70 @@
-import Image from "next/image";
-import { ArrowRight, Clock3 } from "lucide-react";
-import { Container } from "@/components/Container";
-import { SectionHeading } from "@/components/SectionHeading";
+import React from "react";
 import { destinations } from "@/data/destinations";
-import { formatIDR } from "@/lib/utils";
 
-export function Destinations() {
-  const featured = destinations.filter((item) => ["kuta", "canggu", "ubud", "uluwatu", "bedugul", "amed"].includes(item.id));
-  return <section id="prices" className="bg-slate-50 py-20 sm:py-28"><Container><SectionHeading eyebrow="Popular routes" title="Fixed airport transfer prices" description="Select your destination in the booking form for an instant estimate. Prices below are per private vehicle." /><div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{featured.map((item) => <article key={item.id} className="group overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-slate-200"><div className="relative h-52 overflow-hidden"><Image src={item.image} alt={item.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-500 group-hover:scale-105" /></div><div className="p-6"><p className="text-xs font-bold uppercase tracking-widest text-gold-600">{item.area}</p><h3 className="mt-2 text-xl font-bold text-navy-900">{item.name}</h3><div className="mt-4 flex items-center justify-between"><span className="text-lg font-bold text-navy-900">{formatIDR(item.price)}</span><span className="flex items-center gap-1 text-sm text-slate-500"><Clock3 size={15} />{item.travelTime}</span></div><a href="#booking" className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-navy-900">Book this route <ArrowRight size={16} /></a></div></article>)}</div><div className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white"><div className="grid grid-cols-[1fr_auto] bg-navy-900 px-5 py-4 text-sm font-bold text-white"><span>Destination</span><span>From airport</span></div>{destinations.map((item) => <div key={item.id} className="grid grid-cols-[1fr_auto] gap-4 border-t border-slate-100 px-5 py-4 text-sm"><span className="font-medium text-navy-900">{item.name}</span><span className="font-bold text-navy-900">{formatIDR(item.price)}</span></div>)}</div></Container></section>;
+export default function PopularDestinations() {
+  return (
+    <section className="py-16 bg-gray-50" id="destinations">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Popular Destinations & Transfers
+          </h2>
+          <p className="mt-3 text-lg text-gray-600">
+            Jelajahi seluruh rute dan destinasi terbaik di Bali dengan layanan transportasi terpercaya kami.
+          </p>
+        </div>
+
+        {/* Galeri Grid Kotak (Menampilkan Semua Destinasi) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {destinations.map((destination) => (
+            <div 
+              key={destination.id}
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-gray-100 group"
+            >
+              {/* Bagian Gambar */}
+              <div className="relative h-48 w-full overflow-hidden bg-gray-200">
+                <img 
+                  src={destination.image} 
+                  alt={destination.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                  {destination.area}
+                </span>
+              </div>
+
+              {/* Bagian Konten & Info */}
+              <div className="p-5 flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                    {destination.name}
+                  </h3>
+                  <p className="text-sm text-gray-500 mb-4">
+                    Estimasi: <span className="font-medium text-gray-700">{destination.travelTime}</span>
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+                  <div>
+                    <span className="text-xs text-gray-400 block">Mulai dari</span>
+                    <span className="text-base font-bold text-blue-600">
+                      Rp {destination.price ? destination.price.toLocaleString("id-ID") : "0"}
+                    </span>
+                  </div>
+                  
+                  <a 
+                    href="#booking" 
+                    className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-3.5 py-2 rounded-lg transition-colors"
+                  >
+                    Pesan
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
