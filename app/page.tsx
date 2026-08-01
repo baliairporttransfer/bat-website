@@ -1,6 +1,6 @@
 import { BookingForm } from "@/components/BookingForm";
 import { Contact } from "@/components/Contact";
-import { Destinations } from "@/components/Destinations";
+import Destinations from "@/components/Destinations";
 import { FAQ } from "@/components/FAQ";
 import  Fleet  from "@/components/Fleet";
 import { Footer } from "@/components/Footer";
