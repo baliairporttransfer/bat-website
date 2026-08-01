@@ -174,9 +174,10 @@ Please confirm my booking. Thank you.`;
   }
 
   return (
-    <section className="mx-auto w-full max-w-4xl overflow-hidden rounded-[32px] border border-gray-200 bg-white shadow-xl">
-      {/* HEADER */}
-      <div className="bg-blue-950 px-6 py-6 text-white sm:px-10 sm:py-8">
+  <section id="booking" className="mx-auto w-full max-w-4xl overflow-hidden rounded-[32px] border border-gray-200 bg-white shadow-xl">
+    {/* HEADER */}
+    <div className="bg-blue-950 px-6 py-6 text-white sm:px-10 sm:py-8">
+
         <h1 className="text-2xl font-bold leading-tight sm:text-3xl">
           Book Your Bali Transfer
         </h1>
