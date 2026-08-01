@@ -32,7 +32,7 @@ export function Testimonials() {
           {/* Warna teks ini dicerahkan menjadi text-gray-300 agar mudah dibaca */}
           <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-300 md:text-xl">
             Thoughtful service, clear communication, and a smooth first journey in Bali. 
-            Trusted by over 180+ customers on Google Business.
+            Trusted by over 1326+ customers on Google Business.
           </p>
         </div>
 
