@@ -1,124 +1,68 @@
-import type { Destination } from "@/types";
+import React from "react";
+import { destinations } from "@/data/destinations";
 
-export const destinations: Destination[] = [
-  {
-    id: "kuta-seminyak-kerobokan",
-    name: "Kuta / Seminyak / Kerobokan",
-    area: "South Bali",
-    price: 225000,
-    travelTime: "20–45 min",
-    image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1200&q=80", // Pantai Kuta / Seminyak Sunset
-  },
-  {
-    id: "nusa-dua-jimbaran",
-    name: "Nusa Dua / Jimbaran",
-    area: "South Bali",
-    price: 240000,
-    travelTime: "25–40 min",
-    image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80", // Pantai pasir putih & resort Jimbaran/Nusa Dua
-  },
-  {
-    id: "sanur-denpasar",
-    name: "Sanur / Denpasar",
-    area: "East Denpasar",
-    price: 250000,
-    travelTime: "30–45 min",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80", // Pantai Sanur Sunrise
-  },
-  {
-    id: "canggu-pererenan-mengwi",
-    name: "Canggu / Pererenan / Mengwi",
-    area: "West Bali",
-    price: 325000,
-    travelTime: "45–75 min",
-    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=80", // Canggu Beach & Surf Vibe
-  },
-  {
-    id: "ubud-area",
-    name: "Ubud Area",
-    area: "Central Bali",
-    price: 350000,
-    travelTime: "60–90 min",
-    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80", // Suasana tropis & budaya Ubud
-  },
-  {
-    id: "uluwatu",
-    name: "Uluwatu",
-    area: "Bukit Peninsula",
-    price: 350000,
-    travelTime: "45–70 min",
-    image: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1200&q=80", // Tebing & Pura Uluwatu
-  },
-  {
-    id: "tanah-lot-tabanan",
-    name: "Tanah Lot / Tabanan",
-    area: "West Bali",
-    price: 370000,
-    travelTime: "60–90 min",
-    image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1200&q=80", // Pura Tanah Lot di atas laut
-  },
-  {
-    id: "payangan-tegallalang-pejeng",
-    name: "Payangan / Tegallalang / Pejeng",
-    area: "Central Bali",
-    price: 400000,
-    travelTime: "75–105 min",
-    image: "https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=1200&q=80", // Sawah Terasering Tegallalang
-  },
-  {
-    id: "padangbai",
-    name: "Padangbai",
-    area: "East Bali",
-    price: 500000,
-    travelTime: "1.5–2 hr",
-    image: "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1200&q=80", // Pelabuhan & Pantai Padangbai
-  },
-  {
-    id: "bedugul",
-    name: "Bedugul",
-    area: "North Central Bali",
-    price: 550000,
-    travelTime: "2–2.5 hr",
-    image: "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1200&q=80", // Pura Ulun Danu Beratan Bedugul
-  },
-  {
-    id: "sidemen",
-    name: "Sidemen",
-    area: "East Bali",
-    price: 600000,
-    travelTime: "1.5–2 hr",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80", // pemandangan lembah & Gunung Agung Sidemen
-  },
-  {
-    id: "munduk",
-    name: "Munduk",
-    area: "North Bali",
-    price: 650000,
-    travelTime: "2.5–3 hr",
-    image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80", // Air Terjun Munduk Waterfall
-  },
-  {
-    id: "lovina",
-    name: "Lovina",
-    area: "North Bali",
-    price: 750000,
-    travelTime: "3–3.5 hr",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80", // Pantai pasir hitam Lovina / Dolphin Area
-  },
-  {
-    id: "amed-lempuyang",
-    name: "Amed / Lempuyang",
-    area: "East Bali",
-    price: 750000,
-    travelTime: "3–3.5 hr",
-    image: "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1200&q=80", // Pantai Amed dengan perahu Jukung & Gunung Agung
-  },
-  {
-    id: "sumberkima-pemuteran-menjangan",
-    name: "Sumberkima / Pemuteran / Menjangan",
-    area: "Northwest Bali",
-    price: 850000,
-    travelTime: "4–5 hr",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80", // Laut jernih & Diving/Snorkeling Menjangan / Pemuteran
-  },
-];
+export default function PopularDestinations() {
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            Popular Destinations & Transfers
+          </h2>
+          <p className="mt-3 text-lg text-gray-600">
+            Pilih destinasi populer atau jelajahi semua rute perjalanan terbaik di Bali bersama kami.
+          </p>
+        </div>
+
+        {/* Grid Container (Galeri Kotak) */}
+        {/* Menggunakan grid: 1 kolom di HP, 2 kolom di tablet, 3-4 kolom di layar besar */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {destinations.map((destination) => (
+            <div 
+              key={destination.id}
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col justify-between border border-gray-100"
+            >
+              {/* Gambar Destinasi */}
+              <div className="relative h-48 w-full overflow-hidden bg-gray-200">
+                <img 
+                  src={destination.image} 
+                  alt={destination.name}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                  {destination.area}
+                </span>
+              </div>
+
+              {/* Konten Teks & Informasi */}
+              <div className="p-5 flex flex-col flex-grow justify-between">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">
+                    {destination.name}
+                  </h3>
+                  <p className="text-sm text-gray-500 mb-4">
+                    Estimasi Waktu: <span className="font-medium text-gray-700">{destination.travelTime}</span>
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+                  <div>
+                    <span className="text-xs text-gray-400 block">Mulai dari</span>
+                    <span className="text-base font-bold text-blue-600">
+                      Rp {destination.price.toLocaleString("id-ID")}
+                    </span>
+                  </div>
+                  
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-3.5 py-2 rounded-lg transition-colors">
+                    Pesan
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
