@@ -1,19 +1,17 @@
 import Script from "next/script";
 import { Container } from "@/components/Container";
 
-// Link Google Review resmi Taxi Bali Munduk
 const GOOGLE_REVIEW_LINK = "https://g.page/r/CakT0QxjayQbEBE/review";
 
 export function Testimonials() {
   return (
-    <section id="reviews" className="bg-[#08142B] py-20">
-      {/* Memuat script Elfsight secara otomatis & optimal */}
+    <section id="reviews" className="bg-[#08142B] py-20 overflow-hidden">
       <Script
         src="https://elfsightcdn.com/platform.js"
         strategy="lazyOnload"
       />
 
-      <Container>
+      <Container className="overflow-hidden">
         {/* Header Judul */}
         <div className="text-center mb-10">
           <h2 className="text-sm font-bold tracking-widest text-[#D4AF37] uppercase">
@@ -25,15 +23,15 @@ export function Testimonials() {
           </p>
         </div>
 
-        {/* 🌟 WIDGET ELFSIGHT GOOGLE REVIEWS 🌟 */}
-        <div className="my-8 min-h-[300px]">
+        {/* Pembungkus dikunci agar tidak melebar keluar layar HP */}
+        <div className="my-8 min-h-[300px] w-full max-w-full overflow-hidden">
           <div
             className="elfsight-app-d0389f3b-f4b6-4836-bd24-a35cc3041df6"
             data-elfsight-app-lazy
           />
         </div>
 
-        {/* Tombol Tulis Review & Lihat Ulasan Langsung di Google Maps */}
+        {/* Tombol Action */}
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={GOOGLE_REVIEW_LINK}
