@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[#08142B]/70" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#08142B]/40 to-[#08142B]" />
 
-      <Container className="relative flex min-h-[680px] items-center pt-12 pb-16 md:pt-20">
+      <Container className="relative flex min-h-[680px] items-center pt-32 pb-16 md:pt-36">
         <div className="max-w-3xl pt-6 md:pt-0">
           
           {/* Rating */}
