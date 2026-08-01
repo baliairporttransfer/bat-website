@@ -1,17 +1,124 @@
 import type { Destination } from "@/types";
 
 export const destinations: Destination[] = [
-  { id: "kuta", name: "Kuta / Legian / Seminyak", area: "South Bali", price: 175000, travelTime: "20–45 min", image: "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1200&q=80" },
-  { id: "jimbaran", name: "Jimbaran / Nusa Dua", area: "South Bali", price: 190000, travelTime: "25–40 min", image: "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1200&q=80" },
-  { id: "sanur", name: "Sanur / Denpasar", area: "East Denpasar", price: 200000, travelTime: "30–45 min", image: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1200&q=80" },
-  { id: "canggu", name: "Canggu / Pererenan / Mengwi", area: "West Bali", price: 275000, travelTime: "45–75 min", image: "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1200&q=80" },
-  { id: "ubud", name: "Ubud", area: "Central Bali", price: 300000, travelTime: "60–90 min", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80" },
-  { id: "tegallalang", name: "Tegallalang / Payangan / Pejeng", area: "Central Bali", price: 325000, travelTime: "75–105 min", image: "https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=1200&q=80" },
-  { id: "tanah-lot", name: "Tanah Lot / Tabanan", area: "West Bali", price: 320000, travelTime: "60–90 min", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80" },
-  { id: "uluwatu", name: "Uluwatu", area: "Bukit Peninsula", price: 300000, travelTime: "45–70 min", image: "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1200&q=80" },
-  { id: "bedugul", name: "Bedugul", area: "North Central Bali", price: 500000, travelTime: "2–2.5 hr", image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80" },
-  { id: "munduk", name: "Munduk", area: "North Bali", price: 600000, travelTime: "2.5–3 hr", image: "https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=1200&q=80" },
-  { id: "lovina", name: "Lovina", area: "North Bali", price: 700000, travelTime: "3–3.5 hr", image: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1200&q=80" },
-  { id: "amed", name: "Amed", area: "East Bali", price: 700000, travelTime: "3–3.5 hr", image: "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1200&q=80" },
-  { id: "pemuteran", name: "Pemuteran / Menjangan", area: "Northwest Bali", price: 800000, travelTime: "4–5 hr", image: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1200&q=80" }
+  {
+    id: "kuta-seminyak-kerobokan",
+    name: "Kuta / Seminyak / Kerobokan",
+    area: "South Bali",
+    price: 225000,
+    travelTime: "20–45 min",
+    image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1200&q=80", // Pantai Kuta / Seminyak Sunset
+  },
+  {
+    id: "nusa-dua-jimbaran",
+    name: "Nusa Dua / Jimbaran",
+    area: "South Bali",
+    price: 240000,
+    travelTime: "25–40 min",
+    image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1200&q=80", // Pantai pasir putih & resort Jimbaran/Nusa Dua
+  },
+  {
+    id: "sanur-denpasar",
+    name: "Sanur / Denpasar",
+    area: "East Denpasar",
+    price: 250000,
+    travelTime: "30–45 min",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80", // Pantai Sanur Sunrise
+  },
+  {
+    id: "canggu-pererenan-mengwi",
+    name: "Canggu / Pererenan / Mengwi",
+    area: "West Bali",
+    price: 325000,
+    travelTime: "45–75 min",
+    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1200&q=80", // Canggu Beach & Surf Vibe
+  },
+  {
+    id: "ubud-area",
+    name: "Ubud Area",
+    area: "Central Bali",
+    price: 350000,
+    travelTime: "60–90 min",
+    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1200&q=80", // Suasana tropis & budaya Ubud
+  },
+  {
+    id: "uluwatu",
+    name: "Uluwatu",
+    area: "Bukit Peninsula",
+    price: 350000,
+    travelTime: "45–70 min",
+    image: "https://images.unsplash.com/photo-1555400038-63f5ba517a47?auto=format&fit=crop&w=1200&q=80", // Tebing & Pura Uluwatu
+  },
+  {
+    id: "tanah-lot-tabanan",
+    name: "Tanah Lot / Tabanan",
+    area: "West Bali",
+    price: 370000,
+    travelTime: "60–90 min",
+    image: "https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?auto=format&fit=crop&w=1200&q=80", // Pura Tanah Lot di atas laut
+  },
+  {
+    id: "payangan-tegallalang-pejeng",
+    name: "Payangan / Tegallalang / Pejeng",
+    area: "Central Bali",
+    price: 400000,
+    travelTime: "75–105 min",
+    image: "https://images.unsplash.com/photo-1533669955142-6a73332af4db?auto=format&fit=crop&w=1200&q=80", // Sawah Terasering Tegallalang
+  },
+  {
+    id: "padangbai",
+    name: "Padangbai",
+    area: "East Bali",
+    price: 500000,
+    travelTime: "1.5–2 hr",
+    image: "https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=1200&q=80", // Pelabuhan & Pantai Padangbai
+  },
+  {
+    id: "bedugul",
+    name: "Bedugul",
+    area: "North Central Bali",
+    price: 550000,
+    travelTime: "2–2.5 hr",
+    image: "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1200&q=80", // Pura Ulun Danu Beratan Bedugul
+  },
+  {
+    id: "sidemen",
+    name: "Sidemen",
+    area: "East Bali",
+    price: 600000,
+    travelTime: "1.5–2 hr",
+    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80", // pemandangan lembah & Gunung Agung Sidemen
+  },
+  {
+    id: "munduk",
+    name: "Munduk",
+    area: "North Bali",
+    price: 650000,
+    travelTime: "2.5–3 hr",
+    image: "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80", // Air Terjun Munduk Waterfall
+  },
+  {
+    id: "lovina",
+    name: "Lovina",
+    area: "North Bali",
+    price: 750000,
+    travelTime: "3–3.5 hr",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80", // Pantai pasir hitam Lovina / Dolphin Area
+  },
+  {
+    id: "amed-lempuyang",
+    name: "Amed / Lempuyang",
+    area: "East Bali",
+    price: 750000,
+    travelTime: "3–3.5 hr",
+    image: "https://images.unsplash.com/photo-1539367628448-4bc5c9d171c8?auto=format&fit=crop&w=1200&q=80", // Pantai Amed dengan perahu Jukung & Gunung Agung
+  },
+  {
+    id: "sumberkima-pemuteran-menjangan",
+    name: "Sumberkima / Pemuteran / Menjangan",
+    area: "Northwest Bali",
+    price: 850000,
+    travelTime: "4–5 hr",
+    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80", // Laut jernih & Diving/Snorkeling Menjangan / Pemuteran
+  },
 ];
