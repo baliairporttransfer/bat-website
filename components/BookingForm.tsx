@@ -16,6 +16,10 @@ const destinationPrices = [
   { id: 10, name: "Amed / Tulamben", price: 750000 },
   { id: 11, name: "Lovina / Singaraja", price: 750000 },
   { id: 12, name: "Pemuteran / Menjangan", price: 850000 },
+{ id: 13, name: "Munduk", price: 650000 }, // Ditambahkan dari list sebelumnya
+  { id: 14, name: "Sidemen", price: 600000 }, // Ditambahkan dari list sebelumnya
+  { id: 15, name: "Padangbai", price: 500000 }, // Ditambahkan dari list sebelumnya
+  { id: 16, name: "Payangan / Tegallalang / Pejeng", price: 400000 }, // Ditambahkan dari list sebelumnya
 ];
 
 // Opsi Armada Kendaraan
