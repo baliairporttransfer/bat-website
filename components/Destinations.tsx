@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { destinations } from "@/data/destinations";
 
 export default function Destinations() {
@@ -23,14 +24,16 @@ export default function Destinations() {
               key={destination.id}
               className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-gray-100 group"
             >
-              {/* Bagian Gambar */}
+              {/* Bagian Gambar (Menggunakan komponen Next.js <Image />) */}
               <div className="relative h-48 w-full overflow-hidden bg-gray-200">
-                <img 
+                <Image 
                   src={destination.image} 
                   alt={destination.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                <span className="absolute top-3 right-3 z-10 bg-black/60 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                   {destination.area}
                 </span>
               </div>
