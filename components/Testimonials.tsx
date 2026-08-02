@@ -19,7 +19,7 @@ export function Testimonials() {
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300 md:text-xl">
             Thoughtful service, clear communication, and a smooth journey in Bali. 
-            Trusted by over <span className="font-bold text-white">183+ customers</span> on Google.
+            Trusted by over <span className="font-bold text-white">1326+ customers</span> on Google.
           </p>
         </div>
 
