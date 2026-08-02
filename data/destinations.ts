@@ -7,7 +7,7 @@ export const destinations: Destination[] = [
     area: "North Bali",
     price: 650000,
     travelTime: "2.5–3 hr",
-    image: "/images/destinations/munduk.jpeg",
+    image: "/images/fleet/destinations/munduk.jpeg",
   },
   {
     id: "lovina",
@@ -15,7 +15,7 @@ export const destinations: Destination[] = [
     area: "North Bali",
     price: 750000,
     travelTime: "3–3.5 hr",
-    image: "/images/destinations/lovina.jpeg",
+    image: "/images/fleet/destinations/lovina.jpeg",
   },
   {
     id: "sidemen",
@@ -23,7 +23,7 @@ export const destinations: Destination[] = [
     area: "East Bali",
     price: 600000,
     travelTime: "1.5–2 hr",
-    image: "/images/destinations/sidemen.jpeg",
+    image: "/images/fleet/destinations/sidemen.jpeg",
   },
   {
     id: "amed-lempuyang",
@@ -31,7 +31,7 @@ export const destinations: Destination[] = [
     area: "East Bali",
     price: 750000,
     travelTime: "3–3.5 hr",
-    image: "/images/destinations/amed.jpeg",
+    image: "/images/fleet/destinations/amed.jpeg",
   },
   {
     id: "ubud-area",
@@ -39,7 +39,7 @@ export const destinations: Destination[] = [
     area: "Central Bali",
     price: 350000,
     travelTime: "60–90 min",
-    image: "/images/destinations/ubud.jpeg",
+    image: "/images/fleet/destinations/ubud.jpeg",
   },
   {
     id: "uluwatu",
@@ -47,7 +47,7 @@ export const destinations: Destination[] = [
     area: "Bukit Peninsula",
     price: 350000,
     travelTime: "45–70 min",
-    image: "/images/destinations/uluwatu.jpeg",
+    image: "/images/fleet/destinations/uluwatu.jpeg",
   },
   {
     id: "kuta-seminyak-kerobokan",
@@ -55,7 +55,7 @@ export const destinations: Destination[] = [
     area: "South Bali",
     price: 225000,
     travelTime: "20–45 min",
-    image: "/images/destinations/kuta.jpeg",
+    image: "/images/fleet/destinations/kuta.jpeg",
   },
   {
     id: "nusa-dua-jimbaran",
@@ -63,7 +63,7 @@ export const destinations: Destination[] = [
     area: "South Bali",
     price: 240000,
     travelTime: "25–40 min",
-    image: "/images/destinations/nusa-dua.jpeg",
+    image: "/images/fleet/destinations/nusa-dua.jpeg",
   },
   {
     id: "sanur-denpasar",
@@ -71,7 +71,7 @@ export const destinations: Destination[] = [
     area: "East Denpasar",
     price: 250000,
     travelTime: "30–45 min",
-    image: "/images/destinations/sanur.jpeg",
+    image: "/images/fleet/destinations/sanur.jpeg",
   },
   {
     id: "canggu-pererenan-mengwi",
@@ -79,7 +79,7 @@ export const destinations: Destination[] = [
     area: "West Bali",
     price: 325000,
     travelTime: "45–75 min",
-    image: "/images/destinations/canggu.jpeg",
+    image: "/images/fleet/destinations/canggu.jpeg",
   },
   {
     id: "tanah-lot-tabanan",
@@ -87,7 +87,7 @@ export const destinations: Destination[] = [
     area: "West Bali",
     price: 370000,
     travelTime: "60–90 min",
-    image: "/images/destinations/tanah-lot.jpeg",
+    image: "/images/fleet/destinations/tanah-lot.jpeg",
   },
   {
     id: "payangan-tegallalang-pejeng",
@@ -95,7 +95,7 @@ export const destinations: Destination[] = [
     area: "Central Bali",
     price: 400000,
     travelTime: "75–105 min",
-    image: "/images/destinations/tegalalang.jpeg",
+    image: "/images/fleet/destinations/tegalalang.jpeg",
   },
   {
     id: "padangbai",
@@ -103,7 +103,7 @@ export const destinations: Destination[] = [
     area: "East Bali",
     price: 500000,
     travelTime: "1.5–2 hr",
-    image: "/images/destinations/padangbai.jpeg",
+    image: "/images/fleet/destinations/padangbai.jpeg",
   },
   {
     id: "bedugul",
@@ -111,7 +111,7 @@ export const destinations: Destination[] = [
     area: "North Central Bali",
     price: 550000,
     travelTime: "2–2.5 hr",
-    image: "/images/destinations/bedugul.jpeg",
+    image: "/images/fleet/destinations/bedugul.jpeg",
   },
   {
     id: "sumberkima-pemuteran-menjangan",
@@ -119,6 +119,6 @@ export const destinations: Destination[] = [
     area: "Northwest Bali",
     price: 850000,
     travelTime: "4–5 hr",
-    image: "/images/destinations/pemuteran.jpeg",
+    image: "/images/fleet/destinations/pemuteran.jpeg",
   },
 ];
