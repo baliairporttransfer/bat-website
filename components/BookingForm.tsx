@@ -11,7 +11,7 @@ const destinationPrices = [
   { id: 5, name: "Canggu / Pererenan", price: 350000 },
   { id: 6, name: "Uluwatu / Pecatu", price: 350000 },
   { id: 7, name: "Tanah Lot", price: 400000 },
-  { id: 8, name: "Kintamani / Batur", price: 550000 },
+  { id: 8, name: "Kintamani / Batur", price: 700000 },
   { id: 9, name: "Bedugul / Jatiluwih", price: 550000 },
   { id: 10, name: "Amed / Tulamben", price: 750000 },
   { id: 11, name: "Lovina / Singaraja", price: 750000 },
