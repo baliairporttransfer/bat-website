@@ -64,6 +64,11 @@ export const destinationPrices: DestinationPrice[] = [
     id: "munduk",
     name: "Munduk",
     price: 650000,
+  }, 
+{
+    id: "kintamani-batur",
+    name: "Kintamani / Batur",
+    price: 700000,
   },
   {
     id: "lovina",
