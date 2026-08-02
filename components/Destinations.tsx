@@ -3,7 +3,8 @@ import { destinations } from "@/data/destinations";
 
 export default function Destinations() {
   return (
-    <section className="py-16 bg-gray-50" id="destinations">
+    // Bagian ID di bawah ini sudah diubah menjadi "prices" agar tombol berfungsi
+    <section className="py-16 bg-gray-50" id="prices">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-12">
