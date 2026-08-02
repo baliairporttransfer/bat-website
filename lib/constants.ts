@@ -3,9 +3,12 @@ export const SITE_CONFIG = {
   shortName: "BAT",
   description:
     "Premium private airport transfers and hourly chauffeur service across Bali with fixed prices, professional English-speaking drivers, and instant WhatsApp confirmation.",
+  
+  // Diubah menggunakan domain barumu sebagai nilai utama (fallback)
   baseUrl:
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "https://bat-airport-transfer.vercel.app",
+    "https://transferbali.com",
+    
   email: "hello.baliairporttransfer@gmail.com",
   whatsappDisplay: "+62 857 3821 7365",
   whatsappNumber: "6285738217365",
@@ -13,6 +16,7 @@ export const SITE_CONFIG = {
   heroImage:
     "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=2200&q=85",
   keywords: [
+    "Transfer Bali",
     "Bali Airport Transfer",
     "Airport Taxi Bali",
     "Private Airport Transfer Bali",
