@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 import { SITE_CONFIG } from "@/lib/constants";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -36,6 +37,28 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#08142B" };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={inter.className}>{children}</body></html>;
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        {children}
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-GR1TYJMGQB"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GR1TYJMGQB');
+          `}
+        </Script>
+      </body>
+    </html>
+  );
 }
