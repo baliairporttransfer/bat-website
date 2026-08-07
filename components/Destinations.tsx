@@ -1,73 +1,245 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { destinations } from "@/data/destinations";
 
 export default function Destinations() {
   return (
-    // Bagian ID di bawah ini sudah diubah menjadi "prices" agar tombol berfungsi
-    <section className="py-16 bg-gray-50" id="prices">
+    <section id="prices" className="py-16 bg-gradient-to-b from-slate-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Popular Destinations & Transfers
+
+        {/* Header */}
+        <div className="text-center mb-10">
+          <span className="inline-flex items-center rounded-full bg-emerald-100 text-emerald-700 px-4 py-1 text-sm font-semibold">
+            Popular Airport Routes
+          </span>
+
+          <h2 className="mt-4 text-3xl md:text-4xl font-bold text-slate-900">
+            Choose Your Destination
           </h2>
-          <p className="mt-3 text-lg text-gray-600">
-            Jelajahi seluruh rute dan destinasi terbaik di Bali bersama layanan transportasi terpercaya kami.
+
+          <p className="mt-3 max-w-2xl mx-auto text-slate-600">
+            Fixed prices, professional English-speaking drivers, and private
+            airport transfers throughout Bali.
           </p>
         </div>
 
-        {/* Galeri Grid Kotak (Menampilkan Semua Destinasi) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {destinations.map((destination) => (
-            <div 
+        {/* Mobile: 2 Columns */}
+        {/* Desktop: 4 Columns */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {destinations.map((destination, index) => (
+            <Link
               key={destination.id}
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between border border-gray-100 group"
+              href={`/airport-transfer-${destination.slug}`}
+              className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
             >
-              {/* Bagian Gambar (Menggunakan komponen Next.js <Image />) */}
-              <div className="relative h-48 w-full overflow-hidden bg-gray-200">
-                <Image 
-                  src={destination.image} 
+              {/* Image */}
+              <div className="relative aspect-[4/3] overflow-hidden">
+
+                <Image
+                  src={destination.image}
                   alt={destination.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width:768px) 50vw,25vw"
+                  className="object-cover group-hover:scale-110 transition duration-700"
                 />
-                <span className="absolute top-3 right-3 z-10 bg-black/60 backdrop-blur-md text-white text-xs font-semibold px-2.5 py-1 rounded-full">
-                  {destination.area}
-                </span>
-              </div>
 
-              {/* Bagian Konten & Info */}
-              <div className="p-5 flex flex-col flex-grow justify-between">
-                <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                {/* Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+                {/* Most Popular */}
+                {index === 0 && (
+                  <div className="absolute top-3 left-3 bg-yellow-400 text-slate-900 text-[11px] font-bold px-3 py-1 rounded-full shadow">
+                    ⭐ MOST POPULAR
+                  </div>
+                )}
+
+                {/* Area */}
+                <div className="absolute bottom-3 left-3 text-white">
+                  <p className="text-xl font-bold drop-shadow">
                     {destination.name}
-                  </h3>
-                  <p className="text-sm text-gray-500 mb-4">
-                    Estimasi: <span className="font-medium text-gray-700">{destination.travelTime}</span>
+                  </p>
+
+                  <p className="text-xs text-white/90">
+                    {destination.area}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
-                  <div>
-                    <span className="text-xs text-gray-400 block">Mulai dari</span>
-                    <span className="text-base font-bold text-blue-600">
-                      Rp {destination.price ? destination.price.toLocaleString("id-ID") : "0"}
-                    </span>
-                  </div>
-                  
-                  <a 
-                    href="#booking" 
-                    className="bg-blue-600 hover:bg-blue-700 text-white text-xs font-medium px-3.5 py-2 rounded-lg transition-colors"
-                  >
-                    Pesan
-                  </a>
-                </div>
               </div>
-            </div>
+
+              {/* Content */}
+              <div className="p-5">
+
+                <div className="flex items-center justify-between mb-4">
+
+                  <div className="flex items-center gap-2 text-slate-500 text-sm">
+                    🕒
+                    <span>{destination.travelTime}</span>
+                  </div>
+
+                  <div className="flex items-center gap-2 text-slate-500 text-sm">
+                    👥
+                    <span>1-4 Pax</span>
+                  </div>
+
+                </div>
+
+                <p className="text-sm text-slate-600 leading-relaxed line-clamp-2 mb-5">
+                  {destination.description}
+                </p>
+                <div className="flex items-end justify-between border-t border-slate-100 pt-4">
+
+                  <div>
+
+                    <p className="text-xs uppercase tracking-wide text-slate-400">
+                      From
+                    </p>
+
+                    <div className="mt-1">
+
+                      <span className="text-2xl font-extrabold text-blue-600">
+                        IDR {destination.price?.toLocaleString("id-ID")}
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                  <div className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition-all duration-300 group-hover:bg-blue-700">
+
+                    View Details
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </Link>
+
           ))}
         </div>
+
+        {/* Bottom Features */}
+
+        <div className="mt-16 rounded-3xl bg-gradient-to-r from-slate-900 to-slate-800 p-8 md:p-10">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div className="flex items-start gap-4">
+
+              <div className="h-14 w-14 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-2xl">
+                💰
+              </div>
+
+              <div>
+
+                <h3 className="text-white font-bold text-lg">
+                  Fixed Price
+                </h3>
+
+                <p className="text-slate-300 text-sm mt-2 leading-relaxed">
+                  No hidden fees, no surge pricing, and no surprises.
+                  The price you see is exactly what you pay.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div className="flex items-start gap-4">
+
+              <div className="h-14 w-14 rounded-2xl bg-sky-500/20 flex items-center justify-center text-2xl">
+                🚗
+              </div>
+
+              <div>
+
+                <h3 className="text-white font-bold text-lg">
+                  Professional Drivers
+                </h3>
+
+                <p className="text-slate-300 text-sm mt-2 leading-relaxed">
+                  Friendly English-speaking local drivers with clean,
+                  air-conditioned private vehicles.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div className="flex items-start gap-4">
+
+              <div className="h-14 w-14 rounded-2xl bg-yellow-500/20 flex items-center justify-center text-2xl">
+                ⭐
+              </div>
+
+              <div>
+
+                <h3 className="text-white font-bold text-lg">
+                  Trusted Service
+                </h3>
+
+                <p className="text-slate-300 text-sm mt-2 leading-relaxed">
+                  Hundreds of happy travelers choose Transfer Bali
+                  every year for reliable airport transfers.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+        {/* View All Destinations */}
+
+        <div className="mt-12 text-center">
+
+          <Link
+            href="/destinations"
+            className="inline-flex items-center gap-3 rounded-full bg-blue-600 px-8 py-4 text-white font-semibold shadow-lg hover:bg-blue-700 transition-all duration-300 hover:scale-105"
+          >
+            View All Destinations
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+
+          </Link>
+
+          <p className="mt-4 text-sm text-slate-500">
+            Private Airport Transfers • Hotel Transfers • Day Tours • Available 24/7
+          </p>
+
+        </div>
+
       </div>
     </section>
   );
