@@ -30,7 +30,7 @@ export default function Destinations() {
           {destinations.map((destination, index) => (
             <Link
               key={destination.id}
-              href={`/airport-transfer-${destination.slug}`}
+              href={`/airport-transfer-${destination.id}`}
               className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
             >
               {/* Image */}
