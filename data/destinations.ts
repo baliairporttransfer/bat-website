@@ -26,7 +26,7 @@ export const destinations: Destination[] = [
     image: "/images/fleet/destinations/sidemen.jpeg",
   },
   {
-    id: "amed-lempuyang",
+    id: "amed",
     name: "Amed / Lempuyang",
     area: "East Bali",
     price: 750000,
@@ -34,7 +34,7 @@ export const destinations: Destination[] = [
     image: "/images/fleet/destinations/amed.jpeg",
   },
   {
-    id: "ubud-area",
+    id: "ubud",
     name: "Ubud Area",
     area: "Central Bali",
     price: 350000,
@@ -50,7 +50,7 @@ export const destinations: Destination[] = [
     image: "/images/fleet/destinations/uluwatu.jpeg",
   },
   {
-    id: "kuta-seminyak-kerobokan",
+    id: "seminyak",
     name: "Kuta / Seminyak / Kerobokan",
     area: "South Bali",
     price: 225000,
@@ -58,7 +58,7 @@ export const destinations: Destination[] = [
     image: "/images/fleet/destinations/kuta.jpeg",
   },
   {
-    id: "nusa-dua-jimbaran",
+    id: "nusa-dua",
     name: "Nusa Dua / Jimbaran",
     area: "South Bali",
     price: 240000,
@@ -66,7 +66,7 @@ export const destinations: Destination[] = [
     image: "/images/fleet/destinations/nusa-dua.jpeg",
   },
   {
-    id: "sanur-denpasar",
+    id: "sanur",
     name: "Sanur / Denpasar",
     area: "East Denpasar",
     price: 250000,
@@ -74,7 +74,7 @@ export const destinations: Destination[] = [
     image: "/images/fleet/destinations/sanur.jpeg",
   },
   {
-    id: "canggu-pererenan-mengwi",
+    id: "canggu",
     name: "Canggu / Pererenan / Mengwi",
     area: "West Bali",
     price: 325000,
@@ -82,7 +82,7 @@ export const destinations: Destination[] = [
     image: "/images/fleet/destinations/canggu.jpeg",
   },
   {
-    id: "tanah-lot-tabanan",
+    id: "tanah-lot",
     name: "Tanah Lot / Tabanan",
     area: "West Bali",
     price: 370000,
@@ -90,7 +90,7 @@ export const destinations: Destination[] = [
     image: "/images/fleet/destinations/tanah-lot.jpeg",
   },
   {
-    id: "payangan-tegallalang-pejeng",
+    id: "tegallalang",
     name: "Payangan / Tegallalang / Pejeng",
     area: "Central Bali",
     price: 400000,
@@ -114,7 +114,7 @@ export const destinations: Destination[] = [
     image: "/images/fleet/destinations/bedugul.jpeg",
   },
   {
-    id: "sumberkima-pemuteran-menjangan",
+    id: "pemuteran",
     name: "Sumberkima / Pemuteran / Menjangan",
     area: "Northwest Bali",
     price: 850000,
