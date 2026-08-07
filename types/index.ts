@@ -7,8 +7,6 @@ export interface Destination {
   price: number;
   image: string;
   travelTime: string;
-
-  // SEO & Destination Card
   description: string;
 }
 
