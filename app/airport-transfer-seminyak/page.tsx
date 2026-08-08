@@ -65,7 +65,7 @@ const jsonLd = {
       "description": "Premium private airport transfer service from Ngurah Rai International Airport (DPS) to Seminyak, Bali. Includes meet and greet, luggage assistance, and air-conditioned vehicles.",
       "offers": {
         "@type": "Offer",
-        "price": "175000",
+        "price": "225000",
         "priceCurrency": "IDR",
         "availability": "https://schema.org/InStock",
         "url": "https://transferbali.com/airport-transfer-seminyak"
@@ -109,7 +109,7 @@ const jsonLd = {
           "name": "How much does a taxi from Bali airport to Seminyak cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our private airport transfer to Seminyak features a guaranteed fixed price of IDR 175,000 per vehicle. This comfortably accommodates up to 4 passengers with standard luggage. We guarantee no hidden fees, airport tolls, or surge charges."
+            "text": "Our private airport transfer to Seminyak features a guaranteed fixed price of IDR 225,000 per vehicle. This comfortably accommodates up to 4 passengers with standard luggage. We guarantee no hidden fees, airport tolls, or surge charges."
           }
         },
         {
@@ -311,7 +311,7 @@ export default function AirportTransferSeminyakPage() {
               <p className="text-slate-300 font-medium mb-2">Fixed Rate</p>
               <div className="text-white mb-6 flex items-baseline justify-center">
                 <span className="text-xl mr-1">IDR</span>
-                <span className="text-5xl font-bold tracking-tight">175k</span>
+                <span className="text-5xl font-bold tracking-tight">225k</span>
               </div>
               <p className="text-slate-400 text-sm mb-8">Per vehicle, all inclusive</p>
               <Link 
@@ -399,7 +399,7 @@ export default function AirportTransferSeminyakPage() {
             aria-label="Book your airport transfer to Seminyak via WhatsApp"
             className="inline-flex justify-center items-center gap-2 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-semibold transition-all shadow-md"
           >
-            Book Airport Transfer to Seminyak (IDR 175k)
+            Book Airport Transfer to Seminyak (IDR 225k)
           </Link>
         </div>
 
@@ -443,7 +443,7 @@ export default function AirportTransferSeminyakPage() {
               },
               {
                 q: "How much does a taxi from Bali airport to Seminyak cost?",
-                a: "Our private airport transfer to Seminyak features a guaranteed fixed price of IDR 175,000 per vehicle. This comfortably accommodates up to 4 passengers with standard luggage. We guarantee no hidden fees, airport tolls, or surge charges."
+                a: "Our private airport transfer to Seminyak features a guaranteed fixed price of IDR 225,000 per vehicle. This comfortably accommodates up to 4 passengers with standard luggage. We guarantee no hidden fees, airport tolls, or surge charges."
               },
               {
                 q: "What happens if my flight to Bali is delayed?",
@@ -583,3 +583,4 @@ export default function AirportTransferSeminyakPage() {
     </main>
   );
 }
+
