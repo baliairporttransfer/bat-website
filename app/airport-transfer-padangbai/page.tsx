@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Airport Transfer to Padangbai | Fixed Price IDR 550,000 | Transfer Bali',
+  title: 'Airport Transfer to Padangbai | Fixed Price IDR 500,000 | Transfer Bali',
   description: 'Book a private airport transfer from Ngurah Rai Airport to Padangbai Harbour starting at IDR 550,000. Enjoy a reliable, comfortable, and prompt ride with professional drivers.',
   keywords: ['airport transfer padangbai', 'bali airport to padangbai taxi', 'private driver bali airport padangbai', 'transfer bali'],
   openGraph: {
