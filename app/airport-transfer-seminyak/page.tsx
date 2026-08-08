@@ -746,7 +746,7 @@ export default function AirportTransferSeminyakPage() {
 
               <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl">
                 <Image
-                  src="/images/fleet/destinations2/seminyak.jpeg"
+                  src="/images/fleet/Destinations2/seminyak.jpeg"
                   alt="Private Bali airport transfer to Seminyak"
                   fill
                   className="object-cover"
@@ -776,6 +776,7 @@ export default function AirportTransferSeminyakPage() {
                     <p className="text-xs text-slate-500">
                       Fixed Price
                     </p>
+
                     <p className="font-bold text-slate-900">
                       IDR 225,000
                     </p>
@@ -815,28 +816,28 @@ export default function AirportTransferSeminyakPage() {
                 price: "IDR 325,000",
                 time: "45–75 min",
                 href: "/airport-transfer-canggu",
-                image: "/images/fleet/destinations2/canggu.jpeg",
+                image: "/images/fleet/Destinations2/canggu.jpeg",
               },
               {
                 name: "Ubud",
                 price: "IDR 350,000",
                 time: "60–90 min",
                 href: "/airport-transfer-ubud",
-                image: "/images/fleet/destinations2/ubud.jpeg",
+                image: "/images/fleet/Destinations2/ubud.jpeg",
               },
               {
                 name: "Uluwatu",
                 price: "IDR 350,000",
                 time: "45–70 min",
                 href: "/airport-transfer-uluwatu",
-                image: "/images/fleet/destinations2/uluwatu.jpeg",
+                image: "/images/fleet/Destinations2/uluwatu.jpeg",
               },
               {
                 name: "Nusa Dua",
                 price: "IDR 240,000",
                 time: "25–40 min",
                 href: "/airport-transfer-nusa-dua",
-                image: "/images/fleet/destinations2/nusa-dua.jpeg",
+                image: "/images/fleet/Destinations2/nusa-dua.jpeg",
               },
             ].map((destination) => (
               <Link
