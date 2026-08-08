@@ -514,3 +514,664 @@ export default function AirportTransferBedugulPage() {
 
         </div>
       </section>
+      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+            Why Choose Transfer Bali for Your Bedugul Route
+          </h2>
+
+          <p className="text-slate-600 max-w-2xl mx-auto">
+            Discover why travelers heading to the cool mountain sanctuary of
+            Bedugul prefer our premier bali airport transfer bedugul service.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              title: 'Real-Time Flight Tracking',
+              desc: 'We monitor your flight status continuously so your driver can adjust pickup times seamlessly for delayed arrivals.',
+              icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+            },
+            {
+              title: 'Fixed Transparent Rates',
+              desc: 'Lock in a secure flat rate with zero unexpected surcharges, hidden fees, or surge pricing worries.',
+              icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
+            },
+            {
+              title: 'VIP Meet & Greet',
+              desc: 'Skip the airport chaos. Your professional chauffeur greets you inside the main arrival hall with a personalized name board.',
+              icon: 'M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5'
+            },
+            {
+              title: 'Comfortable Mountain Fleet',
+              desc: 'Travel safely through steep winding roads inside fully air-conditioned, meticulously maintained, and sanitized vehicles.',
+              icon: 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4'
+            },
+            {
+              title: 'Expert Mountain Drivers',
+              desc: 'Our skilled English speaking chauffeurs possess extensive experience navigating central highland terrains safely and efficiently.',
+              icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z'
+            },
+            {
+              title: 'Dedicated 24/7 Support',
+              desc: 'Have questions or need to modify your schedule? Our customer support group is available around-the-clock via WhatsApp.',
+              icon: 'M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z'
+            }
+          ].map((feature, i) => (
+            <div
+              key={i}
+              className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-lg transition-shadow"
+            >
+              <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 text-emerald-600">
+                <svg
+                  aria-hidden="true"
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d={feature.icon}
+                  />
+                </svg>
+              </div>
+
+              <h3 className="text-xl font-bold text-slate-900 mb-3">
+                {feature.title}
+              </h3>
+
+              <p className="text-slate-600 leading-relaxed">
+                {feature.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="bg-slate-900 py-24 text-white w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              How Your Airport Pickup Works
+            </h2>
+
+            <p className="text-slate-400 max-w-2xl mx-auto">
+              Arriving at DPS airport is smooth and stress-free when you follow
+              our clear transfer procedures.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+
+            <div
+              className="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-slate-800 z-0"
+              aria-hidden="true"
+            />
+
+            {[
+              {
+                step: '01',
+                title: 'Flight Land & Customs',
+                desc: 'Exit your aircraft, pass through passport control smoothly, and collect your luggage.'
+              },
+              {
+                step: '02',
+                title: 'Meet Your Driver',
+                desc: 'Walk into the main arrival hall where your private chauffeur holds a signboard with your name.'
+              },
+              {
+                step: '03',
+                title: 'Luggage Assistance',
+                desc: 'Your driver handles your bags and guides you securely to the air-conditioned vehicle.'
+              },
+              {
+                step: '04',
+                title: 'Mountain Ride to Bedugul',
+                desc: 'Settle back and enjoy a scenic journey northward toward the central highlands.'
+              }
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="relative z-10 flex flex-col items-center text-center"
+              >
+                <div className="w-24 h-24 bg-slate-800 border-4 border-slate-900 rounded-full flex items-center justify-center text-2xl font-bold text-emerald-400 mb-6 shadow-xl">
+                  {item.step}
+                </div>
+
+                <h3 className="text-xl font-bold mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-slate-400">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+      <article className="py-24 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 prose prose-lg prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-emerald-600 w-full">
+
+        <h2 className="text-4xl text-center mb-12">
+          The Ultimate Guide to Bedugul: Bali's Refreshing Mountain Sanctuary
+        </h2>
+
+        <p>
+          Bedugul is a peaceful mountain lake resort destination located in the
+          central highlands of Bali, famous for its cool climate, lush botanical
+          gardens, and the iconic lakeside temple. Securing a dependable{' '}
+          <Link
+            href="/airport-transfer-bedugul"
+            title="Bali Airport Transfer to Bedugul"
+          >
+            private airport transfer bedugul
+          </Link>{' '}
+          ensures you complete the 60-kilometer mountain journey from Ngurah Rai
+          International Airport safely, comfortably, and on time.
+        </p>
+
+        <p>
+          The drive from the airport to Bedugul typically takes between 90 to
+          120 minutes as you ascend northward through winding interior roads.
+          Booking an expert <strong>bali airport transfer bedugul</strong> means
+          your English speaking driver will track your flight schedule, greet
+          you warmly upon arrival, and navigate mountain roadways directly to
+          your hotel or villa.
+        </p>
+
+        <h3>Why Bedugul is a Must-Visit Highland Destination</h3>
+
+        <p>
+          Bedugul offers a dramatic contrast to Bali’s warm coastal beaches,
+          featuring crisp mountain air, mist-covered hills, and fertile
+          agricultural terraces. Reliable ground transportation is essential
+          for families and nature lovers wanting a stress-free transition into
+          the highlands.
+        </p>
+
+        <div className="not-prose my-12 bg-emerald-50 border border-emerald-200 rounded-2xl p-8 text-center">
+
+          <h3 className="text-2xl font-bold text-slate-900 mb-3">
+            Planning a Mountain Getaway to Bedugul?
+          </h3>
+
+          <p className="text-slate-600 mb-6 max-w-xl mx-auto">
+            Ensure a seamless transit from the airport to the cool highlands.
+            Reserve your private vehicle with a professional driver today.
+          </p>
+
+          <Link
+            href={whatsappUrl}
+            aria-label="Book your airport transfer to Bedugul via WhatsApp"
+            className="inline-flex justify-center items-center gap-2 px-8 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-semibold transition-all shadow-md"
+          >
+            Book Airport Transfer to Bedugul (IDR 550k)
+          </Link>
+
+        </div>
+
+        <h3>Top Experiences and Attractions Near Bedugul</h3>
+
+        <p>
+          Bedugul and its surrounding highland plateau offer incredible
+          sightseeing, cultural landmarks, and natural wonders. Here are the
+          top locations to explore:
+        </p>
+
+        <ol>
+          <li>
+            <strong>Pura Ulun Danu Beratan:</strong> The famous water temple
+            floating gracefully on the serene surface of Lake Beratan.
+          </li>
+
+          <li>
+            <strong>Bali Botanic Garden (Kebun Raya Bali):</strong> Indonesia's
+            largest botanical garden featuring vast rainforests, orchid houses,
+            and treetop adventure parks.
+          </li>
+
+          <li>
+            <strong>Lake Beratan:</strong> A scenic crater lake offering water
+            sports, boat rentals, and picturesque misty backdrops.
+          </li>
+
+          <li>
+            <strong>Bedugul Traditional Market:</strong> A vibrant local market
+            bustling with fresh highland strawberries, exotic fruits, and fresh
+            flowers.
+          </li>
+
+          <li>
+            <strong>Handara Gate:</strong> The iconic picturesque traditional
+            Balinese gateway framed by lush green mountains and misty clouds.
+          </li>
+
+          <li>
+            <strong>Lake Buyan and Lake Tamblingan:</strong> Twin lakes nestled
+            within ancient volcanic craters, ideal for tranquil trekking and
+            camping.
+          </li>
+
+          <li>
+            <strong>Jatiluwih Rice Terraces:</strong> UNESCO World Heritage
+            cascading rice fields located just south of the main Bedugul area.
+          </li>
+
+          <li>
+            <strong>Ulun Danu Beratan Park:</strong> Beautifully manicured
+            lakeside gardens with colorful flower beds and cultural statues.
+          </li>
+
+          <li>
+            <strong>Strawberry Farms:</strong> Local agritourism farms where
+            visitors can pick fresh strawberries directly from the vines.
+          </li>
+
+          <li>
+            <strong>Mount Catur Hiking Trails:</strong> Scenic mountain climbing
+            routes leading to the highest peak overlooking the northern lakes.
+          </li>
+        </ol>
+
+        <h3>Travel & Transport Tips for Bedugul</h3>
+
+        <p>
+          Navigating airport transits and mountain roads in Bali requires proper
+          planning. Keep these expert recommendations in mind:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Mountain Climate Preparation:</strong> Because Bedugul sits
+            at over 1,500 meters above sea level, temperatures are significantly
+            cooler than the coast. Bring light jackets or sweaters for your
+            arrival.
+          </li>
+
+          <li>
+            <strong>Winding Roads Comfort:</strong> Booking a reliable{' '}
+            <Link
+              href="/airport-transfer-bedugul"
+              title="Bedugul Airport Taxi"
+            >
+              airport taxi bedugul
+            </Link>{' '}
+            guarantees a spacious, well-maintained vehicle capable of handling
+            mountain inclines smoothly.
+          </li>
+
+          <li>
+            <strong>Luggage Accommodation:</strong> Our private vehicles easily
+            handle large suitcases and travel gear without compromising
+            passenger comfort.
+          </li>
+
+          <li>
+            <strong>Experienced Mountain Chauffeurs:</strong> Having a seasoned
+            English speaking driver ensures safe navigation through winding
+            interior roads.
+          </li>
+        </ul>
+
+      </article>
+
+      <section className="bg-slate-50 py-24 w-full">
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center mb-16">
+
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+
+            <p className="text-slate-600">
+              Everything you need to know about your taxi bali airport to
+              bedugul transfer.
+            </p>
+
+          </div>
+
+          <div className="space-y-6">
+
+            {[
+              {
+                q: "How far is Bedugul from Bali Airport?",
+                a: "The driving distance from Ngurah Rai International Airport (DPS) to Bedugul is approximately 55 to 60 kilometers north through the central highland terrain. A private car transfer typically takes around 90 to 120 minutes depending on mountain traffic and weather conditions."
+              },
+              {
+                q: "How much is a taxi from Bali airport to Bedugul?",
+                a: "Our private airport transfer to Bedugul has a fixed, all-inclusive price of IDR 550,000 per vehicle. This covers up to 4 passengers, standard luggage, fuel, toll fees, and professional mountain-experienced driver services with zero hidden costs."
+              },
+              {
+                q: "What happens if my flight is delayed before heading to Bedugul?",
+                a: "We provide complimentary live flight tracking. If your arrival at DPS Airport is delayed, your private English speaking driver will automatically adjust the pickup schedule and wait for you at no extra charge."
+              },
+              {
+                q: "Where do I find my driver at Ngurah Rai Airport?",
+                a: "After clearing customs and collecting your luggage, enter the main arrival hall. Your chauffeur will be waiting there, holding a clear signboard with your name for an effortless meet and greet experience."
+              },
+              {
+                q: "Can you drop us off directly at our mountain hotel or villa in Bedugul?",
+                a: "Yes! We provide direct door-to-door drop-off right at your hotel, resort, villa, or tourist attraction in the Bedugul area at no extra charge."
+              },
+              {
+                q: "Do you provide baby car seats for trips to Bedugul?",
+                a: "Yes, we prioritize family safety during mountain journeys. Clean, certified baby or child car seats can be arranged for a small additional fee when booking via WhatsApp."
+              },
+              {
+                q: "Are night-time airport transfers available for traveling to Bedugul?",
+                a: "Yes, our transfer service operates 24/7. Whether you arrive on an early morning flight or a late-night red-eye flight, our drivers are fully prepared for your airport pickup."
+              },
+              {
+                q: "Is a deposit required for the booking?",
+                a: "No advance payment is necessary. You can book your airport taxi to Bedugul securely through WhatsApp and pay your driver directly in cash upon safe arrival at your destination."
+              },
+              {
+                q: "What vehicles do you use for Bedugul trips?",
+                a: "We deploy modern, well-maintained, fully air-conditioned private vehicles like the Toyota Avanza or Toyota Innova, equipped with powerful engines ideal for climbing Bali's steep mountain roads."
+              },
+              {
+                q: "When should I book my transfer to Bedugul?",
+                a: "We recommend booking at least 12 to 24 hours in advance to guarantee vehicle availability and secure your preferred pickup time for your mountain trip."
+              }
+            ].map((faq, i) => (
+
+              <div
+                key={i}
+                className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100"
+              >
+
+                <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  {faq.q}
+                </h3>
+
+                <p className="text-slate-600">
+                  {faq.a}
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section className="py-20 bg-white border-t border-slate-100">
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center mb-12">
+
+            <h2 className="text-3xl font-bold text-slate-900 mb-3">
+              Related Destinations
+            </h2>
+
+            <p className="text-slate-600 max-w-xl mx-auto">
+              Explore our other fixed-price private airport transfer routes
+              across Bali from Ngurah Rai International Airport.
+            </p>
+
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            {[
+              {
+                name: 'Bedugul',
+                price: 'IDR 550,000',
+                time: '90-120 mins',
+                href: '/airport-transfer-bedugul',
+                image: '/images/fleet/Destinations2/bedugul.jpeg'
+              },
+              {
+                name: 'Padangbai',
+                price: 'IDR 500,000',
+                time: '75-90 mins',
+                href: '/airport-transfer-padangbai',
+                image: '/images/padangbai-hero.jpg'
+              },
+              {
+                name: 'Ubud',
+                price: 'IDR 350,000',
+                time: '60-90 mins',
+                href: '/airport-transfer-ubud',
+                image: '/images/ubud-hero.jpg'
+              },
+              {
+                name: 'Canggu',
+                price: 'IDR 250,000',
+                time: '45-60 mins',
+                href: '/airport-transfer-canggu',
+                image: '/images/canggu-hero.jpg'
+              }
+            ].map((dest, i) => (
+
+              <Link
+                key={i}
+                href={dest.href}
+                className="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 hover:shadow-xl transition-all flex flex-col"
+              >
+
+                <div className="relative h-48 w-full overflow-hidden bg-slate-200">
+
+                  <Image
+                    src={dest.image}
+                    alt={`Private airport transfer to ${dest.name}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                  />
+
+                  <div className="absolute top-3 right-3 bg-slate-900/85 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                    {dest.price}
+                  </div>
+
+                </div>
+
+                <div className="p-6 flex flex-col flex-grow justify-between">
+
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-emerald-600 transition-colors mb-1">
+                      {dest.name}
+                    </h3>
+
+                    <p className="text-sm text-slate-500 mb-4">
+                      Duration: {dest.time}
+                    </p>
+                  </div>
+
+                  <span className="inline-flex items-center text-sm font-semibold text-emerald-600 group-hover:translate-x-1 transition-transform">
+                    View Transfer Details &rarr;
+                  </span>
+
+                </div>
+
+              </Link>
+
+            ))}
+
+          </div>
+
+          <div className="mt-12 text-center flex flex-wrap justify-center gap-4 text-sm text-slate-600">
+
+            <span className="font-semibold text-slate-900">
+              Explore More Routes:
+            </span>
+
+            <Link href="/" className="hover:text-emerald-600 underline underline-offset-2">
+              Home
+            </Link>
+
+            <span>•</span>
+
+            <Link href="/airport-transfer-bedugul" className="hover:text-emerald-600 underline underline-offset-2">
+              Airport Transfer Bedugul
+            </Link>
+
+            <span>•</span>
+
+            <Link href="/airport-transfer-padangbai" className="hover:text-emerald-600 underline underline-offset-2">
+              Airport Transfer Padangbai
+            </Link>
+
+            <span>•</span>
+
+            <Link href="/airport-transfer-ubud" className="hover:text-emerald-600 underline underline-offset-2">
+              Airport Transfer Ubud
+            </Link>
+
+            <span>•</span>
+
+            <Link href="/airport-transfer-canggu" className="hover:text-emerald-600 underline underline-offset-2">
+              Airport Transfer Canggu
+            </Link>
+
+            <span>•</span>
+
+            <Link href="/airport-transfer-seminyak" className="hover:text-emerald-600 underline underline-offset-2">
+              Airport Transfer Seminyak
+            </Link>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <section className="bg-gradient-to-r from-emerald-900 to-teal-900 py-20 text-white w-full">
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+
+          <h2 className="text-3xl lg:text-5xl font-extrabold tracking-tight">
+            Ready for Your Journey to Bedugul Highlands?
+          </h2>
+
+          <p className="text-emerald-100 text-lg max-w-2xl mx-auto leading-relaxed">
+            Book your private{' '}
+            <Link
+              href="/airport-transfer-bedugul"
+              className="text-white underline underline-offset-2 font-semibold"
+            >
+              airport transfer bedugul
+            </Link>{' '}
+            today. Enjoy a fixed price (IDR 550k) including toll fees, zero
+            waiting stress, and an expert driver waiting right at Bali airport.
+          </p>
+
+          <div className="pt-4">
+
+            <Link
+              href={whatsappUrl}
+              aria-label="Book your Bedugul airport transfer via WhatsApp instantly"
+              className="inline-flex justify-center items-center gap-2 px-10 py-5 bg-white hover:bg-emerald-50 text-slate-900 rounded-2xl font-bold transition-all shadow-2xl text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-emerald-900"
+            >
+              <svg
+                aria-hidden="true"
+                className="w-6 h-6 text-emerald-600"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52-.149.174-.198.298-.298.497-.099.198-.05.371.025.52.075.149.669 1.612.916 2.207.242.579.487.5.669.51.182.01.397.013.57.013.198 0 .52-.074.792-.372.272-.297 1.04-1.016 1.04-2.479 0-1.462-1.065-2.875-1.213-3.074-.149-.198-2.096-3.2-5.077-4.487-.709-.306-1.262-.489-1.694-.625-.712-.227-1.36-.195-1.871-.118-.571.085-1.758.719-2.006 1.413-.248.694-.248 1.289-.173 1.413.074.124.272.198.57.347.297.149 1.758.867 2.03.967.273.099.471.148.67-.15.197-.297.767-.966.94-1.164.173-.199.347-.223.644-.075.297.15 1.255.463 2.39 1.475.883.788 1.48 1.761 1.653 2.059.173.297.018.458-.13.606-.134.133-.298.347-.446.52-.149.174-.198.298-.298.497-.099.198-.05.371.025.52.075.149.669 1.612.916 2.207.242.579.487.5.669.51.198.01.52.074.792-.372.272-.297 1.04-1.016 1.04-2.479 0-1.462-1.065-2.875-1.213-3.074-.149-.198-2.096-3.2-5.077-4.487-.709-.306-1.262-.489-1.694-.625-.712-.227-1.36-.195-1.871-.118-.571.085-1.758.719-2.006 1.413-.248.694-.248 1.289-.173 1.413.074.124.272.198.57.347"
+                />
+              </svg>
+
+              Book via WhatsApp Now
+            </Link>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <footer className="bg-slate-950 text-slate-400 py-16 border-t border-slate-800">
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+
+          <div className="space-y-3 text-center md:text-left">
+
+            <span className="text-2xl font-bold text-white tracking-tight">
+              Transfer Bali
+            </span>
+
+            <p className="text-sm text-slate-400 max-w-sm">
+              Your trusted partner for safe, reliable, and fixed-price private
+              airport transfers throughout Bali.
+            </p>
+
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6 text-sm">
+
+            <Link href="/" className="hover:text-white transition-colors">
+              Home
+            </Link>
+
+            <Link
+              href="/airport-transfer-bedugul"
+              className="hover:text-white transition-colors"
+            >
+              Bedugul
+            </Link>
+
+            <Link
+              href="/airport-transfer-padangbai"
+              className="hover:text-white transition-colors"
+            >
+              Padangbai
+            </Link>
+
+            <Link
+              href="/airport-transfer-ubud"
+              className="hover:text-white transition-colors"
+            >
+              Ubud
+            </Link>
+
+            <Link
+              href="/airport-transfer-canggu"
+              className="hover:text-white transition-colors"
+            >
+              Canggu
+            </Link>
+
+            <Link
+              href={whatsappUrl}
+              className="hover:text-white transition-colors"
+            >
+              Contact Support
+            </Link>
+
+          </div>
+
+          <div className="text-sm text-slate-500 text-center md:text-right">
+
+            <p>
+              &copy; {new Date().getFullYear()} Transfer Bali. All rights
+              reserved.
+            </p>
+
+            <p className="mt-1">
+              Ngurah Rai International Airport Transfer Specialists
+            </p>
+
+          </div>
+
+        </div>
+
+      </footer>
+
+    </main>
+  );
+}
