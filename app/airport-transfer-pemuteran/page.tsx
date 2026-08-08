@@ -161,8 +161,8 @@ export default function PemuteranTransferPage() {
         </nav>
 
         {/* Hero Section */}
-        <header className="relative bg-slate-900 text-white py-20 lg:py-32">
-          <div className="absolute inset-0 opacity-40 overflow-hidden">
+        <header className="relative bg-slate-900 text-white py-20 lg:py-32 overflow-hidden">
+          <div className="absolute inset-0 opacity-40">
             <Image
               src="/images/pemuteran-transfer.jpg"
               alt="Pemuteran Bali Beach"
@@ -243,71 +243,120 @@ export default function PemuteranTransferPage() {
           </div>
         </section>
 
-        {/* Airport Pickup Process */}
+        {/* Included Services */}
         <section className="bg-white py-16 border-y border-slate-100 my-12">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Simple Airport Pickup Process</h2>
-              <p className="text-slate-600">We make meeting your driver at Ngurah Rai International Airport seamless and stress-free.</p>
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">What's Included in Your Transfer</h2>
+              <p className="text-slate-600">Everything you need for a comfortable and stress-free journey from the airport to Pemuteran.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30">1</div>
-                <h3 className="font-bold text-lg mb-2">Book via WhatsApp</h3>
-                <p className="text-slate-600 text-sm">Send us your flight details and drop-off hotel in Pemuteran.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                <h3 className="font-bold text-lg text-slate-900 mb-2">Private Air-Conditioned Car</h3>
+                <p className="text-slate-600 text-sm">Clean, spacious, and modern vehicle reserved exclusively for your party.</p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30">2</div>
-                <h3 className="font-bold text-lg mb-2">Landing & Welcome</h3>
-                <p className="text-slate-600 text-sm">Clear immigration and customs. Your driver waits at arrivals with a name sign.</p>
+              <div className="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                <h3 className="font-bold text-lg text-slate-900 mb-2">Professional Driver</h3>
+                <p className="text-slate-600 text-sm">English-speaking, licensed, and polite driver to assist you along the way.</p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30">3</div>
-                <h3 className="font-bold text-lg mb-2">Luggage Assistance</h3>
-                <p className="text-slate-600 text-sm">Our driver helps with your bags and escorts you directly to the air-conditioned car.</p>
+              <div className="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                <h3 className="font-bold text-lg text-slate-900 mb-2">All Toll & Parking Fees</h3>
+                <p className="text-slate-600 text-sm">No extra charges for highway tolls, airport parking, or roadside halts.</p>
               </div>
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30">4</div>
-                <h3 className="font-bold text-lg mb-2">Relaxed Journey</h3>
-                <p className="text-slate-600 text-sm">Enjoy a smooth ride to Pemuteran and pay cash directly to the driver upon arrival.</p>
+              <div className="p-6 rounded-xl bg-slate-50 border border-slate-100">
+                <h3 className="font-bold text-lg text-slate-900 mb-2">Luggage Assistance</h3>
+                <p className="text-slate-600 text-sm">Full assistance with your bags from the arrival gate to your destination.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Popular Places in Pemuteran */}
+        {/* Airport Pickup Process */}
         <section className="max-w-7xl mx-auto px-4 py-12">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Discover Pemuteran & Surrounding Attractions</h2>
-            <p className="text-slate-600">Pemuteran is a tranquil coastal village renowned for quiet beaches, coral reef restoration projects, and gateway access to West Bali National Park.</p>
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Simple Airport Pickup Process</h2>
+            <p className="text-slate-600">We make meeting your driver at Ngurah Rai International Airport seamless and stress-free.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
-              <div className="relative h-48 bg-slate-200">
-                <Image src="/images/pemuteran-reef.jpg" alt="Pemuteran Reef" fill className="object-cover" />
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30">1</div>
+              <h3 className="font-bold text-lg mb-2">Book via WhatsApp</h3>
+              <p className="text-slate-600 text-sm">Send us your flight details and drop-off hotel in Pemuteran.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30">2</div>
+              <h3 className="font-bold text-lg mb-2">Landing & Welcome</h3>
+              <p className="text-slate-600 text-sm">Clear immigration and customs. Your driver waits at arrivals with a name sign.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30">3</div>
+              <h3 className="font-bold text-lg mb-2">Luggage Assistance</h3>
+              <p className="text-slate-600 text-sm">Our driver helps with your bags and escorts you directly to the air-conditioned car.</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 shadow-lg shadow-blue-500/30">4</div>
+              <h3 className="font-bold text-lg mb-2">Relaxed Journey</h3>
+              <p className="text-slate-600 text-sm">Enjoy a smooth ride to Pemuteran and pay cash directly to the driver upon arrival.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Popular Places in Pemuteran */}
+        <section className="bg-white py-16 border-y border-slate-100 my-12">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">Discover Pemuteran & Surrounding Attractions</h2>
+              <p className="text-slate-600">Pemuteran is a tranquil coastal village renowned for quiet beaches, coral reef restoration projects, and gateway access to West Bali National Park.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-slate-50 rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                <div className="relative h-48 bg-slate-200">
+                  <Image src="/images/pemuteran-reef.jpg" alt="Pemuteran Reef" fill className="object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">Pemuteran Bio-Rock Reef</h3>
+                  <p className="text-slate-600 text-sm">Home to the world's largest coral reef restoration project using electrical currents. Perfect for snorkeling and scuba diving.</p>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Pemuteran Bio-Rock Reef</h3>
-                <p className="text-slate-600 text-sm">Home to the world's largest coral reef restoration project using electrical currents. Perfect for snorkeling and scuba diving.</p>
+              <div className="bg-slate-50 rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                <div className="relative h-48 bg-slate-200">
+                  <Image src="/images/menjangan-island.jpg" alt="Menjangan Island" fill className="object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">Menjangan Island</h3>
+                  <p className="text-slate-600 text-sm">Located nearby in West Bali National Park, offering world-class wall diving, pristine coral gardens, and wild deer roaming beaches.</p>
+                </div>
+              </div>
+              <div className="bg-slate-50 rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                <div className="relative h-48 bg-slate-200">
+                  <Image src="/images/pura-pulaki.jpg" alt="Pura Pulaki" fill className="object-cover" />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">Pura Pulaki Temple</h3>
+                  <p className="text-slate-600 text-sm">A famous cliffside sea temple inhabited by hundreds of wild monkeys, overlooking the stunning northern coastline of Bali.</p>
+                </div>
               </div>
             </div>
-            <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
-              <div className="relative h-48 bg-slate-200">
-                <Image src="/images/menjangan-island.jpg" alt="Menjangan Island" fill className="object-cover" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Menjangan Island</h3>
-                <p className="text-slate-600 text-sm">Located nearby in West Bali National Park, offering world-class wall diving, pristine coral gardens, and wild deer roaming beaches.</p>
-              </div>
+          </div>
+        </section>
+
+        {/* Trust Section */}
+        <section className="max-w-7xl mx-auto px-4 py-12">
+          <div className="bg-blue-50 rounded-3xl p-8 lg:p-12 border border-blue-100 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <span className="block text-3xl font-extrabold text-blue-600 mb-2">100%</span>
+              <h3 className="font-bold text-slate-900 mb-1">Reliable Private Cars</h3>
+              <p className="text-slate-600 text-sm">Clean, sanitized vehicles ready for long-distance travel.</p>
             </div>
-            <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-100">
-              <div className="relative h-48 bg-slate-200">
-                <Image src="/images/pura-pulaki.jpg" alt="Pura Pulaki" fill className="object-cover" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Pura Pulaki Temple</h3>
-                <p className="text-slate-600 text-sm">A famous cliffside sea temple inhabited by hundreds of wild monkeys, overlooking the stunning northern coastline of Bali.</p>
-              </div>
+            <div>
+              <span className="block text-3xl font-extrabold text-blue-600 mb-2">0 IDR</span>
+              <h3 className="font-bold text-slate-900 mb-1">Hidden Surcharges</h3>
+              <p className="text-slate-600 text-sm">Transparent fixed pricing with everything included.</p>
+            </div>
+            <div>
+              <span className="block text-3xl font-extrabold text-blue-600 mb-2">24/7</span>
+              <h3 className="font-bold text-slate-900 mb-1">Customer Support</h3>
+              <p className="text-slate-600 text-sm">Always ready to assist via WhatsApp anytime you need.</p>
             </div>
           </div>
         </section>
@@ -388,7 +437,7 @@ export default function PemuteranTransferPage() {
           </div>
         </section>
 
-        {/* Internal Links */}
+        {/* Professional Footer CTA */}
         <footer className="max-w-7xl mx-auto px-4 py-12 border-t border-slate-200">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 text-sm">
             <div>
