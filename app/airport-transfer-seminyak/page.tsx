@@ -1,36 +1,26 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-const SITE_URL = "https://transferbali.com";
-const PAGE_URL = `${SITE_URL}/airport-transfer-seminyak`;
-const WHATSAPP_NUMBER = "6285738217365";
-
-const whatsappUrl =
-  `https://wa.me/${WHATSAPP_NUMBER}?text=` +
-  encodeURIComponent(
-    "Hi, I would like to book a private airport transfer from Bali Airport to Seminyak."
-  );
-
 export const metadata: Metadata = {
-  title: "Bali Airport Transfer to Seminyak | Private Transfer",
+  title: "Bali Airport Transfer to Seminyak | Private Taxi from DPS",
   description:
-    "Book a private Bali Airport transfer to Seminyak from Ngurah Rai International Airport. Fixed IDR 225,000, professional driver, flight tracking and easy WhatsApp booking.",
+    "Book a private Bali Airport Transfer to Seminyak from Ngurah Rai International Airport. Fixed price IDR 225,000, professional drivers, meet & greet and 24/7 support.",
   alternates: {
-    canonical: PAGE_URL,
+    canonical: "https://transferbali.com/airport-transfer-seminyak",
   },
   openGraph: {
     title: "Bali Airport Transfer to Seminyak | Transfer Bali",
     description:
-      "Private airport transfer from Bali Airport to Seminyak with fixed pricing, professional drivers and easy WhatsApp booking.",
-    url: PAGE_URL,
+      "Private airport transfer from Bali Airport to Seminyak with fixed pricing, professional drivers, meet & greet and 24/7 support.",
+    url: "https://transferbali.com/airport-transfer-seminyak",
     siteName: "Transfer Bali",
     images: [
       {
-        url: `${SITE_URL}/images/seminyak-transfer-og.jpg`,
+        url: "https://transferbali.com/images/fleet/destinations2/seminyak-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Private Bali Airport transfer to Seminyak",
+        alt: "Private Bali Airport Transfer to Seminyak",
       },
     ],
     locale: "en_US",
@@ -41,7 +31,9 @@ export const metadata: Metadata = {
     title: "Bali Airport Transfer to Seminyak | Transfer Bali",
     description:
       "Private airport transfer from Bali Airport to Seminyak with fixed pricing and professional drivers.",
-    images: [`${SITE_URL}/images/seminyak-transfer-og.jpg`],
+    images: [
+      "https://transferbali.com/images/fleet/destinations2/seminyak-hero.jpg",
+    ],
   },
 };
 
@@ -49,112 +41,75 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "LocalBusiness",
+      "@id": "https://transferbali.com/#localbusiness",
+      name: "Transfer Bali",
+      url: "https://transferbali.com",
+      image:
+        "https://transferbali.com/images/fleet/destinations2/seminyak-hero.jpg",
+      telephone: "+6285738217365",
+      priceRange: "IDR 225,000+",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Tuban",
+        addressRegion: "Bali",
+        postalCode: "80362",
+        addressCountry: "ID",
+      },
+    },
+    {
       "@type": "Service",
-      "@id": `${PAGE_URL}#service`,
       name: "Bali Airport Transfer to Seminyak",
       serviceType: "Airport Transfer",
-      description:
-        "Private airport transfer service from Ngurah Rai International Airport to Seminyak, Bali.",
       provider: {
-        "@type": "LocalBusiness",
-        name: "Transfer Bali",
-        url: SITE_URL,
-        telephone: "+6285738217365",
+        "@id": "https://transferbali.com/#localbusiness",
       },
       areaServed: {
-        "@type": "Place",
-        name: "Seminyak, Bali, Indonesia",
+        "@type": "City",
+        name: "Seminyak",
       },
+      description:
+        "Private airport transfer from Ngurah Rai International Airport to Seminyak with professional drivers, meet and greet and fixed pricing.",
       offers: {
         "@type": "Offer",
         price: "225000",
         priceCurrency: "IDR",
         availability: "https://schema.org/InStock",
-        url: PAGE_URL,
+        url: "https://transferbali.com/airport-transfer-seminyak",
       },
     },
     {
       "@type": "BreadcrumbList",
-      "@id": `${PAGE_URL}#breadcrumb`,
       itemListElement: [
         {
           "@type": "ListItem",
           position: 1,
           name: "Home",
-          item: SITE_URL,
+          item: "https://transferbali.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Destinations",
-          item: `${SITE_URL}/destinations`,
+          item: "https://transferbali.com/destinations",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: "Airport Transfer to Seminyak",
-          item: PAGE_URL,
-        },
-      ],
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${PAGE_URL}#faq`,
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "How much is a Bali Airport transfer to Seminyak?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text:
-              "Our private airport transfer from Bali Airport to Seminyak is IDR 225,000 per vehicle.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How long does the transfer from Bali Airport to Seminyak take?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text:
-              "The journey usually takes around 25 to 40 minutes, depending on traffic and your exact hotel location.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Where will I meet my driver at Bali Airport?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text:
-              "Your driver will meet you in the airport arrival area with a name sign after you complete immigration and collect your luggage.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Do you monitor delayed flights?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text:
-              "Yes. We use your flight number to monitor your arrival and adjust the pickup time when your flight is delayed.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "How many passengers can travel in one vehicle?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text:
-              "Our standard private vehicle is suitable for up to 4 passengers with standard luggage.",
-          },
+          item: "https://transferbali.com/airport-transfer-seminyak",
         },
       ],
     },
   ],
 };
 
+const whatsappUrl =
+  "https://wa.me/6285738217365?text=Hi%2C%20I%20would%20like%20to%20book%20an%20Airport%20Transfer%20to%20Seminyak.";
+
 export default function AirportTransferSeminyakPage() {
   return (
     <main className="min-h-screen bg-white text-slate-900">
-      {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -165,928 +120,929 @@ export default function AirportTransferSeminyakPage() {
       {/* Breadcrumb */}
       <nav
         aria-label="Breadcrumb"
-        className="border-b border-slate-100 bg-white"
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4"
       >
-        <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-          <ol className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
-            <li>
-              <Link
-                href="/"
-                className="transition-colors hover:text-emerald-600"
-              >
-                Home
-              </Link>
-            </li>
-
-            <li aria-hidden="true">/</li>
-
-            <li>
-              <Link
-                href="/destinations"
-                className="transition-colors hover:text-emerald-600"
-              >
-                Destinations
-              </Link>
-            </li>
-
-            <li aria-hidden="true">/</li>
-
-            <li
-              aria-current="page"
-              className="font-medium text-slate-900"
+        <ol className="flex flex-wrap items-center gap-2 text-sm text-slate-500">
+          <li>
+            <Link
+              href="/"
+              className="hover:text-emerald-600 transition-colors"
             >
-              Seminyak
-            </li>
-          </ol>
-        </div>
+              Home
+            </Link>
+          </li>
+
+          <li aria-hidden="true">/</li>
+
+          <li>
+            <Link
+              href="/destinations"
+              className="hover:text-emerald-600 transition-colors"
+            >
+              Destinations
+            </Link>
+          </li>
+
+          <li aria-hidden="true">/</li>
+
+          <li className="font-medium text-slate-800">
+            Seminyak
+          </li>
+        </ol>
       </nav>
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-20">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            {/* Hero Content */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-emerald-50/70 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            {/* Hero Text */}
             <div>
-              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700">
-                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              <div className="inline-flex items-center gap-2 rounded-full bg-emerald-100 px-3 py-1.5 text-sm font-semibold text-emerald-700 mb-5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 Private Bali Airport Transfer
               </div>
 
-              <h1 className="max-w-2xl text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
                 Bali Airport Transfer to{" "}
-                <span className="text-emerald-600">Seminyak</span>
+                <span className="text-emerald-600">
+                  Seminyak
+                </span>
               </h1>
 
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
-                Start your Bali holiday without the stress. Enjoy a private
-                transfer from Ngurah Rai International Airport directly to
-                your hotel or villa in Seminyak.
+              <p className="mt-5 text-lg leading-relaxed text-slate-600 max-w-xl">
+                Enjoy a comfortable private transfer from
+                Ngurah Rai International Airport (DPS) directly
+                to your hotel or villa in Seminyak.
               </p>
 
-              {/* Quick Info */}
-              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-                  <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-                    Price
+              <p className="mt-3 text-base leading-relaxed text-slate-500 max-w-xl">
+                Fixed price, professional driver, airport meet
+                and greet, and flight monitoring included.
+              </p>
+
+              {/* Price */}
+              <div className="mt-7 flex items-center gap-5">
+                <div>
+                  <p className="text-sm text-slate-500">
+                    Fixed price from
                   </p>
-                  <p className="mt-1 text-lg font-bold text-slate-900">
-                    IDR 225k
+
+                  <p className="text-3xl font-extrabold text-slate-900">
+                    IDR 225,000
+                  </p>
+
+                  <p className="text-sm text-slate-500">
+                    per private vehicle
                   </p>
                 </div>
 
-                <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-                  <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-                    Duration
-                  </p>
-                  <p className="mt-1 text-lg font-bold text-slate-900">
-                    25–40 min
-                  </p>
-                </div>
+                <div className="hidden sm:block h-12 w-px bg-slate-200" />
 
-                <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-                  <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-                    Passengers
+                <div className="hidden sm:block">
+                  <p className="text-sm text-slate-500">
+                    Travel time
                   </p>
-                  <p className="mt-1 text-lg font-bold text-slate-900">
-                    Up to 4
-                  </p>
-                </div>
 
-                <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-slate-100">
-                  <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
-                    Service
-                  </p>
-                  <p className="mt-1 text-lg font-bold text-slate-900">
-                    24/7
+                  <p className="font-bold text-slate-900">
+                    25–40 minutes
                   </p>
                 </div>
               </div>
 
-              {/* CTA */}
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              {/* Buttons */}
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Link
                   href={whatsappUrl}
-                  className="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-7 py-4 font-bold text-white shadow-lg shadow-emerald-200 transition-all hover:bg-emerald-700 hover:shadow-xl"
+                  className="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-6 py-3.5 font-bold text-white shadow-lg shadow-emerald-200 hover:bg-emerald-700 transition-all"
                 >
                   Book via WhatsApp
                 </Link>
 
-                <a
+                <Link
                   href="#pricing"
-                  className="inline-flex items-center justify-center rounded-xl bg-white px-7 py-4 font-bold text-slate-900 shadow-sm ring-1 ring-slate-200 transition-all hover:bg-slate-50"
+                  className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-6 py-3.5 font-semibold text-slate-800 hover:bg-slate-50 transition-all"
                 >
                   View Price
-                </a>
+                </Link>
               </div>
 
-              <p className="mt-4 text-sm text-slate-500">
-                ✓ Fixed price &nbsp; ✓ Private vehicle &nbsp; ✓ Flight
-                monitoring
-              </p>
+              {/* Trust points */}
+              <div className="mt-7 grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div>
+                  <p className="font-bold text-slate-900">
+                    ✓ Fixed Price
+                  </p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    No surprise fees
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-bold text-slate-900">
+                    ✓ Meet & Greet
+                  </p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    Airport arrival hall
+                  </p>
+                </div>
+
+                <div>
+                  <p className="font-bold text-slate-900">
+                    ✓ 24/7 Support
+                  </p>
+                  <p className="text-xs text-slate-500 mt-1">
+                    WhatsApp assistance
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Hero Image */}
             <div className="relative">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-2xl bg-slate-100">
                 <Image
-                  src="/images/seminyak-hero.jpg"
-                  alt="Private airport transfer from Bali Airport to Seminyak"
+                  src="/images/fleet/destinations2/seminyak-hero.jpg"
+                  alt="Private Bali Airport Transfer from Ngurah Rai Airport to Seminyak"
                   fill
                   priority
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
 
-              {/* Floating Card */}
-              <div className="absolute -bottom-5 left-4 right-4 rounded-2xl bg-white p-4 shadow-xl ring-1 ring-slate-100 sm:left-6 sm:right-auto sm:max-w-xs">
+              {/* Floating Info */}
+              <div className="absolute left-4 right-4 -bottom-5 sm:left-6 sm:right-auto bg-white rounded-2xl shadow-xl border border-slate-100 px-5 py-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 font-bold">
                     ✓
                   </div>
 
                   <div>
                     <p className="font-bold text-slate-900">
-                      Meet & Greet
+                      Airport → Seminyak
                     </p>
+
                     <p className="text-sm text-slate-500">
-                      Your driver will be waiting for you
+                      Private • Comfortable • Reliable
                     </p>
                   </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* TRUST BAR */}
-      <section className="border-b border-slate-100 bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-slate-100 px-4 py-6 sm:px-6 md:grid-cols-4 lg:px-8">
-          <div className="px-4 text-center">
-            <p className="font-bold text-slate-900">Fixed Price</p>
-            <p className="mt-1 text-xs text-slate-500">
-              No surprise charges
-            </p>
-          </div>
+      {/* QUICK INFORMATION */}
+      <section className="py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="px-4 text-center">
-            <p className="font-bold text-slate-900">Private Car</p>
-            <p className="mt-1 text-xs text-slate-500">
-              No shared transfers
-            </p>
-          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
 
-          <div className="px-4 pt-4 text-center md:pt-0">
-            <p className="font-bold text-slate-900">Flight Tracking</p>
-            <p className="mt-1 text-xs text-slate-500">
-              We monitor your arrival
-            </p>
-          </div>
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-sm text-slate-500">
+                Route
+              </p>
 
-          <div className="px-4 pt-4 text-center md:pt-0">
-            <p className="font-bold text-slate-900">WhatsApp Booking</p>
-            <p className="mt-1 text-xs text-slate-500">
-              Easy communication
-            </p>
+              <p className="mt-1 font-bold text-slate-900">
+                Bali Airport → Seminyak
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-sm text-slate-500">
+                Distance
+              </p>
+
+              <p className="mt-1 font-bold text-slate-900">
+                Approximately 10 km
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-sm text-slate-500">
+                Travel Time
+              </p>
+
+              <p className="mt-1 font-bold text-slate-900">
+                25–40 minutes
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
+              <p className="text-sm text-slate-500">
+                Capacity
+              </p>
+
+              <p className="mt-1 font-bold text-slate-900">
+                Up to 4 passengers
+              </p>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* PRICE SECTION */}
+      {/* PRICING */}
       <section
         id="pricing"
-        className="bg-white py-16 sm:py-20"
+        className="bg-slate-50 py-16 lg:py-20"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center max-w-2xl mx-auto mb-10">
             <p className="text-sm font-bold uppercase tracking-wider text-emerald-600">
               Simple & Transparent
             </p>
 
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Seminyak Airport Transfer Price
+            <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-slate-900">
+              Airport Transfer Seminyak Price
             </h2>
 
             <p className="mt-4 text-slate-600">
-              One private vehicle, one fixed price. No complicated pricing
-              calculations.
+              One fixed price for a comfortable private
+              vehicle from Bali Airport to your accommodation
+              in Seminyak.
             </p>
           </div>
 
-          <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
+          <div className="max-w-4xl mx-auto overflow-hidden rounded-3xl bg-white border border-slate-100 shadow-xl">
+
             <div className="grid md:grid-cols-2">
-              {/* Left */}
-              <div className="p-7 sm:p-10">
+
+              {/* Details */}
+              <div className="p-7 sm:p-9">
+
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <p className="text-sm font-semibold text-emerald-600">
                       PRIVATE TRANSFER
                     </p>
 
-                    <h3 className="mt-2 text-2xl font-bold text-slate-900">
-                      Bali Airport → Seminyak
+                    <h3 className="mt-1 text-2xl font-bold text-slate-900">
+                      Bali Airport to Seminyak
                     </h3>
-                  </div>
-
-                  <div className="rounded-xl bg-emerald-50 px-3 py-2 text-center">
-                    <p className="text-xs text-emerald-600">
-                      FROM
-                    </p>
-                    <p className="font-bold text-emerald-700">
-                      225k
-                    </p>
                   </div>
                 </div>
 
-                <div className="mt-8 grid grid-cols-2 gap-5">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                      Distance
-                    </p>
-                    <p className="mt-1 font-bold text-slate-900">
-                      Approx. 10 km
-                    </p>
-                  </div>
+                <p className="mt-4 text-slate-600 leading-relaxed">
+                  A private air-conditioned vehicle with a
+                  professional driver, suitable for couples,
+                  families and small groups.
+                </p>
+
+                <div className="mt-7 grid grid-cols-2 gap-5">
 
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                      Travel Time
-                    </p>
-                    <p className="mt-1 font-bold text-slate-900">
-                      25–40 minutes
-                    </p>
-                  </div>
-
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                    <p className="text-xs uppercase tracking-wide text-slate-400">
                       Passengers
                     </p>
                     <p className="mt-1 font-bold text-slate-900">
-                      Up to 4 people
+                      Up to 4
                     </p>
                   </div>
 
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                    <p className="text-xs uppercase tracking-wide text-slate-400">
                       Luggage
                     </p>
                     <p className="mt-1 font-bold text-slate-900">
-                      Standard luggage
+                      Up to 4 suitcases
                     </p>
                   </div>
+
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-slate-400">
+                      Duration
+                    </p>
+                    <p className="mt-1 font-bold text-slate-900">
+                      25–40 min
+                    </p>
+                  </div>
+
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-slate-400">
+                      Service
+                    </p>
+                    <p className="mt-1 font-bold text-slate-900">
+                      24/7
+                    </p>
+                  </div>
+
                 </div>
 
-                <div className="mt-8 border-t border-slate-100 pt-6">
-                  <ul className="space-y-3 text-sm text-slate-600">
-                    <li className="flex gap-3">
-                      <span className="font-bold text-emerald-600">✓</span>
-                      Meet & greet at the airport
-                    </li>
+                <ul className="mt-7 space-y-3 text-sm text-slate-600">
 
-                    <li className="flex gap-3">
-                      <span className="font-bold text-emerald-600">✓</span>
-                      Flight delay monitoring
-                    </li>
+                  <li className="flex gap-3">
+                    <span className="text-emerald-600 font-bold">✓</span>
+                    Airport meet & greet
+                  </li>
 
-                    <li className="flex gap-3">
-                      <span className="font-bold text-emerald-600">✓</span>
-                      Air-conditioned private vehicle
-                    </li>
+                  <li className="flex gap-3">
+                    <span className="text-emerald-600 font-bold">✓</span>
+                    Flight monitoring
+                  </li>
 
-                    <li className="flex gap-3">
-                      <span className="font-bold text-emerald-600">✓</span>
-                      Professional local driver
-                    </li>
-                  </ul>
-                </div>
+                  <li className="flex gap-3">
+                    <span className="text-emerald-600 font-bold">✓</span>
+                    Air-conditioned vehicle
+                  </li>
+
+                  <li className="flex gap-3">
+                    <span className="text-emerald-600 font-bold">✓</span>
+                    Professional driver
+                  </li>
+
+                </ul>
               </div>
 
-              {/* Right */}
-              <div className="flex flex-col justify-center bg-slate-900 p-7 text-center sm:p-10">
-                <p className="text-sm font-medium text-slate-400">
-                  Fixed transfer price
+              {/* Price Box */}
+              <div className="bg-slate-900 p-7 sm:p-9 flex flex-col justify-center">
+
+                <p className="text-sm font-semibold text-emerald-400">
+                  FIXED RATE
                 </p>
 
-                <div className="mt-3">
+                <div className="mt-2">
                   <span className="text-lg text-slate-400">
                     IDR
                   </span>
 
-                  <span className="ml-2 text-5xl font-extrabold tracking-tight text-white">
+                  <span className="ml-2 text-5xl font-extrabold text-white">
                     225k
                   </span>
                 </div>
 
-                <p className="mt-3 text-sm text-slate-400">
+                <p className="mt-2 text-sm text-slate-400">
                   Per private vehicle
                 </p>
 
-                <Link
-                  href={whatsappUrl}
-                  className="mt-8 inline-flex items-center justify-center rounded-xl bg-emerald-500 px-6 py-4 font-bold text-slate-950 transition-colors hover:bg-emerald-400"
-                >
-                  Book This Transfer
-                </Link>
+                <div className="mt-7 space-y-3">
 
-                <p className="mt-4 text-xs text-slate-500">
-                  Contact us on WhatsApp to confirm availability
-                </p>
+                  <Link
+                    href={whatsappUrl}
+                    className="flex w-full items-center justify-center rounded-xl bg-emerald-500 px-5 py-3.5 font-bold text-slate-950 hover:bg-emerald-400 transition-colors"
+                  >
+                    Book This Transfer
+                  </Link>
+
+                  <p className="text-center text-xs text-slate-500">
+                    No hidden airport transfer fees
+                  </p>
+
+                </div>
               </div>
+
             </div>
           </div>
         </div>
       </section>
-      {/* WHY CHOOSE US */}
-      <section className="bg-slate-50 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-wider text-emerald-600">
-              A Better Way to Arrive
-            </p>
+      {/* =========================
+          WHY CHOOSE US
+      ========================== */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Why Choose Transfer Bali?
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider">
+              Why Choose Transfer Bali
+            </span>
+
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-slate-900">
+              A Better Way to Travel from Bali Airport to Seminyak
             </h2>
 
-            <p className="mt-4 text-slate-600">
-              We make your journey from Bali Airport to Seminyak simple,
-              comfortable and stress-free.
+            <p className="mt-4 text-slate-600 text-lg leading-relaxed">
+              Avoid airport taxi queues and complicated price negotiations.
+              Enjoy a private, comfortable and reliable transfer directly to
+              your hotel or villa in Seminyak.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
             {[
               {
-                title: "Fixed & Clear Pricing",
+                title: "Fixed Price",
                 description:
-                  "Know the price before you travel. Our Seminyak transfer has a clear fixed rate with no surprise surge pricing.",
+                  "Know your transfer price before you arrive. No hidden fees or unexpected airport charges.",
                 icon: "✓",
-              },
-              {
-                title: "Professional Drivers",
-                description:
-                  "Travel with experienced local drivers who know Bali's roads and tourist areas well.",
-                icon: "★",
               },
               {
                 title: "Flight Monitoring",
                 description:
-                  "Send us your flight number and we can monitor your arrival time if your flight is delayed.",
+                  "We monitor your flight information so your driver can adjust to delays or changes in your arrival time.",
                 icon: "✈",
               },
               {
                 title: "Meet & Greet",
                 description:
-                  "Your driver will meet you at the airport arrival area with a name sign, making your arrival easier.",
-                icon: "✓",
+                  "Your professional driver will meet you at the airport arrival area and assist with your luggage.",
+                icon: "👋",
               },
               {
                 title: "Private Vehicle",
                 description:
-                  "Enjoy your own air-conditioned vehicle. There is no need to share the ride with other passengers.",
+                  "Travel privately without sharing your vehicle with other passengers.",
                 icon: "🚗",
               },
               {
-                title: "Easy WhatsApp Booking",
+                title: "English Speaking Driver",
                 description:
-                  "No complicated booking process. Contact us directly through WhatsApp and confirm your transfer.",
+                  "Communicate easily with a friendly local driver who understands international travelers.",
                 icon: "💬",
+              },
+              {
+                title: "24/7 Booking Support",
+                description:
+                  "Need help with your booking? Contact us anytime through WhatsApp.",
+                icon: "24",
               },
             ].map((feature) => (
               <div
                 key={feature.title}
-                className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100 transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group rounded-2xl border border-slate-100 bg-white p-7 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-xl text-emerald-600">
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold mb-5 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                   {feature.icon}
                 </div>
 
-                <h3 className="mt-5 text-lg font-bold text-slate-900">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
                   {feature.title}
                 </h3>
 
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                <p className="text-slate-600 leading-relaxed">
                   {feature.description}
                 </p>
               </div>
             ))}
+
           </div>
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section className="bg-slate-900 py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-wider text-emerald-400">
-              Simple Arrival
-            </p>
 
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">
-              How Your Airport Transfer Works
+      {/* =========================
+          HOW IT WORKS
+      ========================== */}
+      <section className="py-20 bg-slate-950 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <span className="text-emerald-400 font-semibold text-sm uppercase tracking-wider">
+              Simple Booking Process
+            </span>
+
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold">
+              How Your Bali Airport Transfer Works
             </h2>
 
-            <p className="mt-4 text-slate-400">
-              From landing at Bali Airport to arriving at your Seminyak hotel,
-              the process is simple.
+            <p className="mt-4 text-slate-400 text-lg">
+              Booking your private transfer from Ngurah Rai Airport to
+              Seminyak is simple and stress-free.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+
             {[
               {
                 number: "01",
                 title: "Book Your Transfer",
-                text: "Send us your arrival details and hotel information through WhatsApp.",
+                description:
+                  "Send us your arrival details through WhatsApp and receive your booking confirmation.",
               },
               {
                 number: "02",
-                title: "Land at Bali Airport",
-                text: "Complete immigration, collect your luggage and walk into the arrival area.",
+                title: "We Track Your Flight",
+                description:
+                  "Send us your flight number and we monitor your arrival schedule.",
               },
               {
                 number: "03",
                 title: "Meet Your Driver",
-                text: "Look for your driver holding a name sign in the agreed meeting area.",
+                description:
+                  "Your driver will wait for you at the airport arrival area with your name sign.",
               },
               {
                 number: "04",
-                title: "Relax & Enjoy",
-                text: "Get comfortable in your private air-conditioned vehicle and enjoy the ride to Seminyak.",
+                title: "Enjoy Your Journey",
+                description:
+                  "Relax in your private air-conditioned vehicle and travel directly to your hotel.",
               },
             ].map((step) => (
-              <div
-                key={step.number}
-                className="relative text-center"
-              >
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-emerald-500/40 bg-emerald-500/10 text-xl font-extrabold text-emerald-400">
+              <div key={step.number} className="relative text-center">
+
+                <div className="mx-auto w-16 h-16 rounded-full bg-emerald-600 flex items-center justify-center text-xl font-bold mb-5 shadow-lg shadow-emerald-900/30">
                   {step.number}
                 </div>
 
-                <h3 className="mt-5 text-lg font-bold">
+                <h3 className="text-xl font-bold mb-3">
                   {step.title}
                 </h3>
 
-                <p className="mt-2 text-sm leading-relaxed text-slate-400">
-                  {step.text}
+                <p className="text-slate-400 leading-relaxed">
+                  {step.description}
                 </p>
+
               </div>
             ))}
+
           </div>
         </div>
       </section>
 
-      {/* ABOUT SEMINYAK */}
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm font-bold uppercase tracking-wider text-emerald-600">
-              About Seminyak
-            </p>
 
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Arriving in Seminyak, Bali
+      {/* =========================
+          SEMINYAK GUIDE
+      ========================== */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <article className="prose prose-lg prose-slate max-w-none">
+
+            <h2>
+              Bali Airport Transfer to Seminyak – Complete Travel Guide
             </h2>
-          </div>
 
-          <div className="mt-8 space-y-5 text-base leading-8 text-slate-600">
             <p>
-              Seminyak is one of Bali's most popular areas for visitors looking
-              for a combination of beaches, restaurants, cafes, boutique shops
-              and stylish hotels and villas. It is located on the southwest
-              coast of Bali, north of Kuta and Legian.
+              Seminyak is one of Bali's most popular destinations for
+              international travelers. Located on the southwest coast of the
+              island, the area is famous for its beautiful beaches, luxury
+              villas, restaurants, beach clubs and vibrant nightlife.
             </p>
 
             <p>
-              After a long international flight, arranging your transportation
-              before landing can make your arrival much easier. Instead of
-              searching for a taxi at the airport, a pre-arranged private
-              transfer takes you directly to your accommodation in Seminyak.
+              If you are arriving at Ngurah Rai International Airport (DPS),
+              booking a private airport transfer to Seminyak is one of the
+              easiest ways to begin your Bali holiday. Instead of waiting in
+              a taxi queue, your private driver will meet you at the airport
+              and take you directly to your hotel or villa.
+            </p>
+
+            <h3>
+              How long is the journey from Bali Airport to Seminyak?
+            </h3>
+
+            <p>
+              The distance between Bali Airport and Seminyak is approximately
+              10 kilometers. Under normal traffic conditions, the journey
+              usually takes around 25 to 40 minutes.
             </p>
 
             <p>
-              The journey from Ngurah Rai International Airport to Seminyak is
-              relatively short, but Bali traffic can vary considerably
-              throughout the day. A typical journey takes around 25 to 40
-              minutes, although busy periods can take longer.
+              Travel time can be longer during busy periods, especially in
+              the afternoon and evening when traffic around Kuta, Legian and
+              Seminyak becomes heavier.
             </p>
 
+            <h3>
+              Why book a private airport transfer?
+            </h3>
+
             <p>
-              With Transfer Bali, you can arrange your pickup before your
-              flight and provide your flight number so our team can follow your
-              arrival. Your driver will then meet you at the airport and take
-              you directly to your hotel or villa.
+              A private transfer gives you a comfortable door-to-door journey
+              without having to negotiate prices with airport taxi drivers.
+              You also have the convenience of knowing your driver is waiting
+              for you when you arrive.
             </p>
-          </div>
+
+            <ul>
+              <li>Private air-conditioned vehicle</li>
+              <li>Professional local driver</li>
+              <li>Meet and greet at Bali Airport</li>
+              <li>Flight monitoring</li>
+              <li>Fixed transparent pricing</li>
+              <li>Direct hotel or villa drop-off</li>
+            </ul>
+
+            <h3>
+              Popular places to visit in Seminyak
+            </h3>
+
+            <p>
+              Seminyak offers a wide variety of experiences for visitors.
+              Some of the most popular places include Petitenget Beach,
+              Double Six Beach, Seminyak Beach, Jalan Kayu Aya and the many
+              restaurants and beach clubs around the area.
+            </p>
+
+          </article>
+
         </div>
       </section>
 
-      {/* WHAT TO EXPECT */}
-      <section className="bg-slate-50 py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
-            <div className="relative overflow-hidden rounded-3xl">
-              <div className="relative aspect-[4/3]">
-                <Image
-                  src="/images/seminyak-hero.jpg"
-                  alt="Seminyak Bali private airport transfer"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            </div>
 
-            <div>
-              <p className="text-sm font-bold uppercase tracking-wider text-emerald-600">
-                Your Arrival
-              </p>
+      {/* =========================
+          FAQ
+      ========================== */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-              <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-                What to Expect When You Arrive
-              </h2>
-
-              <div className="mt-7 space-y-5">
-                {[
-                  {
-                    title: "A clear meeting point",
-                    text:
-                      "Your driver will wait at the agreed airport meeting area with your name sign.",
-                  },
-                  {
-                    title: "Help with your luggage",
-                    text:
-                      "Your driver can assist with your luggage and guide you to the vehicle.",
-                  },
-                  {
-                    title: "Direct hotel transfer",
-                    text:
-                      "Travel directly to your Seminyak hotel or villa without changing vehicles.",
-                  },
-                  {
-                    title: "Comfortable journey",
-                    text:
-                      "Relax in an air-conditioned private vehicle while your driver handles the route.",
-                  },
-                ].map((item, index) => (
-                  <div
-                    key={item.title}
-                    className="flex gap-4"
-                  >
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-sm font-bold text-emerald-700">
-                      {index + 1}
-                    </div>
-
-                    <div>
-                      <h3 className="font-bold text-slate-900">
-                        {item.title}
-                      </h3>
-
-                      <p className="mt-1 text-sm leading-relaxed text-slate-600">
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEMINYAK GUIDE */}
-      <article className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm font-bold uppercase tracking-wider text-emerald-600">
-              Travel Guide
-            </p>
-
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Things to Do in Seminyak
-            </h2>
-          </div>
-
-          <div className="mt-10 space-y-8">
-            <div>
-              <h3 className="text-xl font-bold text-slate-900">
-                Relax at Seminyak Beach
-              </h3>
-
-              <p className="mt-3 leading-7 text-slate-600">
-                Seminyak Beach is well known for its wide sandy shoreline and
-                beautiful sunsets. It is an easy place to spend your first
-                afternoon in Bali after checking into your hotel or villa.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-slate-900">
-                Explore Restaurants & Cafes
-              </h3>
-
-              <p className="mt-3 leading-7 text-slate-600">
-                Seminyak has a large selection of restaurants, cafes and bars,
-                ranging from casual local food to international dining. Many
-                popular venues are concentrated around the main streets of
-                Seminyak.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-slate-900">
-                Enjoy the Sunset
-              </h3>
-
-              <p className="mt-3 leading-7 text-slate-600">
-                Sunset is one of the most popular times of day in Seminyak.
-                Beachfront restaurants and beach clubs offer relaxed places to
-                enjoy the evening as the sun goes down over the Indian Ocean.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-xl font-bold text-slate-900">
-                Discover Local Shopping
-              </h3>
-
-              <p className="mt-3 leading-7 text-slate-600">
-                Visitors can find boutiques, resort wear, local crafts and
-                independent shops throughout the Seminyak area. The area is
-                particularly popular with travelers looking for fashion and
-                lifestyle products.
-              </p>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      {/* FAQ */}
-      <section className="bg-slate-50 py-16 sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm font-bold uppercase tracking-wider text-emerald-600">
+          <div className="text-center mb-12">
+            <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider">
               FAQ
-            </p>
+            </span>
 
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Seminyak Airport Transfer FAQ
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-slate-900">
+              Bali Airport to Seminyak Transfer FAQ
             </h2>
-
-            <p className="mt-4 text-slate-600">
-              Common questions about travelling from Bali Airport to Seminyak.
-            </p>
           </div>
 
-          <div className="mt-10 space-y-4">
+          <div className="space-y-4">
+
             {[
               {
-                question:
-                  "How much is a Bali Airport transfer to Seminyak?",
+                question: "How much is a private airport transfer to Seminyak?",
                 answer:
-                  "Our private transfer from Bali Airport to Seminyak starts at IDR 225,000 per vehicle.",
+                  "Our fixed price for a private airport transfer from Bali Airport to Seminyak starts from IDR 225,000 per vehicle.",
               },
               {
-                question:
-                  "How long does Bali Airport to Seminyak take?",
+                question: "How long does Bali Airport to Seminyak take?",
                 answer:
-                  "The normal journey takes approximately 25 to 40 minutes. Travel time can be longer during busy traffic periods.",
+                  "The journey normally takes around 25–40 minutes depending on traffic and your exact hotel location.",
               },
               {
-                question:
-                  "Where will I meet my driver at Bali Airport?",
+                question: "Will the driver wait if my flight is delayed?",
                 answer:
-                  "Your driver will meet you in the agreed arrival area with a name sign after you have completed immigration and collected your luggage.",
+                  "Yes. We monitor your flight information and adjust the pickup time according to your actual arrival.",
               },
               {
-                question:
-                  "What happens if my flight is delayed?",
+                question: "Where will I meet my driver?",
                 answer:
-                  "Provide your flight number when booking and we can monitor the arrival time. If the flight is delayed, the pickup can be adjusted accordingly.",
+                  "Your driver will meet you in the airport arrival area with a name sign and assist you with your luggage.",
               },
               {
-                question:
-                  "How many passengers can travel in the private car?",
+                question: "Is the vehicle private?",
                 answer:
-                  "The standard private vehicle can accommodate up to 4 passengers with standard luggage. For larger groups or extra luggage, please contact us before booking.",
+                  "Yes. Your transfer is private, meaning you will not share the vehicle with other passengers.",
+              },
+              {
+                question: "How can I book the transfer?",
+                answer:
+                  "You can contact us directly through WhatsApp. Simply provide your arrival date, flight number, passenger information and hotel address.",
               },
             ].map((faq) => (
               <details
                 key={faq.question}
-                className="group rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100"
+                className="group rounded-2xl border border-slate-200 bg-slate-50 p-5"
               >
-                <summary className="cursor-pointer list-none pr-6 font-bold text-slate-900 marker:hidden">
-                  <div className="flex items-center justify-between gap-4">
-                    <span>{faq.question}</span>
+                <summary className="cursor-pointer list-none font-semibold text-slate-900 flex items-center justify-between gap-4">
+                  <span>{faq.question}</span>
 
-                    <span className="text-xl text-emerald-600 transition-transform group-open:rotate-45">
-                      +
-                    </span>
-                  </div>
+                  <span className="text-emerald-600 text-xl group-open:rotate-45 transition-transform">
+                    +
+                  </span>
                 </summary>
 
-                <p className="mt-4 border-t border-slate-100 pt-4 text-sm leading-7 text-slate-600">
+                <p className="mt-4 text-slate-600 leading-relaxed">
                   {faq.answer}
                 </p>
               </details>
             ))}
+
           </div>
         </div>
       </section>
 
-      {/* RELATED DESTINATIONS */}
-      <section className="bg-white py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm font-bold uppercase tracking-wider text-emerald-600">
-              More Bali Routes
-            </p>
 
-            <h2 className="mt-2 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Explore Other Airport Transfers
+      {/* =========================
+          RELATED DESTINATIONS
+      ========================== */}
+      <section className="py-20 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="text-center mb-12">
+            <span className="text-emerald-600 font-semibold text-sm uppercase tracking-wider">
+              Explore Bali
+            </span>
+
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold text-slate-900">
+              Other Bali Airport Transfer Destinations
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-slate-600">
-              Planning to stay somewhere else in Bali? Explore our other
-              private airport transfer routes.
+            <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+              Explore our other private airport transfer routes from Ngurah
+              Rai International Airport.
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+
             {[
               {
-                name: "Ubud",
-                href: "/airport-transfer-ubud",
-                image: "/images/ubud-hero.jpg",
+                name: "Canggu",
+                price: "IDR 325k",
+                time: "45–75 min",
+                href: "/airport-transfer-canggu",
+                image: "/images/fleet/destinations2/canggu.jpeg",
               },
               {
-                name: "Canggu",
-                href: "/airport-transfer-canggu",
-                image: "/images/canggu-hero.jpg",
+                name: "Ubud",
+                price: "IDR 350k",
+                time: "60–90 min",
+                href: "/airport-transfer-ubud",
+                image: "/images/fleet/destinations2/ubud.jpeg",
               },
               {
                 name: "Uluwatu",
+                price: "IDR 350k",
+                time: "45–70 min",
                 href: "/airport-transfer-uluwatu",
-                image: "/images/uluwatu-hero.jpg",
+                image: "/images/fleet/destinations2/uluwatu.jpeg",
               },
               {
-                name: "Munduk",
-                href: "/airport-transfer-munduk",
-                image: "/images/munduk-hero.jpg",
-              },
-              {
-                name: "Lovina",
-                href: "/airport-transfer-lovina",
-                image: "/images/lovina-hero.jpg",
+                name: "Nusa Dua",
+                price: "IDR 240k",
+                time: "25–40 min",
+                href: "/airport-transfer-nusa-dua",
+                image: "/images/fleet/destinations2/nusa-dua.jpeg",
               },
             ].map((destination) => (
+
               <Link
                 key={destination.name}
                 href={destination.href}
-                className="group overflow-hidden rounded-2xl bg-slate-50 ring-1 ring-slate-100 transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300"
               >
+
                 <div className="relative aspect-[4/3] overflow-hidden">
+
                   <Image
                     src={destination.image}
-                    alt={`Bali Airport transfer to ${destination.name}`}
+                    alt={`Bali Airport Transfer to ${destination.name}`}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 50vw, 20vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                   />
+
+                  <div className="absolute top-3 right-3 bg-slate-950/80 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                    {destination.price}
+                  </div>
+
                 </div>
 
                 <div className="p-4">
-                  <h3 className="font-bold text-slate-900 transition-colors group-hover:text-emerald-600">
-                    Airport Transfer {destination.name}
+
+                  <h3 className="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors">
+                    {destination.name}
                   </h3>
 
-                  <p className="mt-1 text-sm font-medium text-emerald-600">
-                    View details →
+                  <p className="text-xs text-slate-500 mt-1">
+                    Airport transfer · {destination.time}
                   </p>
+
+                  <span className="block mt-3 text-xs font-medium text-emerald-600">
+                    View transfer details →
+                  </span>
+
                 </div>
+
               </Link>
+
             ))}
+
           </div>
+
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="bg-emerald-700 py-16 text-white sm:py-20">
-        <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-          <p className="text-sm font-bold uppercase tracking-wider text-emerald-200">
-            Ready to Travel?
-          </p>
 
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-5xl">
-            Start Your Bali Holiday Stress-Free
+      {/* =========================
+          FINAL CTA
+      ========================== */}
+      <section className="py-20 bg-emerald-900 text-white">
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+            Ready to Travel from Bali Airport to Seminyak?
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-emerald-50">
-            Reserve your private transfer from Bali Airport to Seminyak and
-            have a professional driver ready for your arrival.
+          <p className="mt-5 text-emerald-100 text-lg max-w-2xl mx-auto leading-relaxed">
+            Book your private airport transfer today and enjoy a comfortable,
+            reliable journey directly to your hotel or villa.
           </p>
 
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+
             <Link
               href={whatsappUrl}
-              className="inline-flex items-center justify-center rounded-xl bg-white px-8 py-4 font-bold text-emerald-700 shadow-lg transition-all hover:bg-emerald-50"
+              className="inline-flex justify-center items-center px-8 py-4 rounded-xl bg-white text-emerald-900 font-bold hover:bg-emerald-50 transition-colors"
             >
               Book via WhatsApp
             </Link>
 
             <Link
               href="/"
-              className="inline-flex items-center justify-center rounded-xl border border-emerald-300 px-8 py-4 font-bold text-white transition-colors hover:bg-emerald-600"
+              className="inline-flex justify-center items-center px-8 py-4 rounded-xl border border-emerald-400 text-white font-semibold hover:bg-emerald-800 transition-colors"
             >
-              Back to Home
+              Back to Transfer Bali
             </Link>
+
           </div>
+
         </div>
+
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-slate-950 py-12 text-slate-400">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-3">
-            <div>
-              <Link
-                href="/"
-                className="text-2xl font-extrabold text-white"
-              >
-                Transfer Bali
-              </Link>
 
-              <p className="mt-3 max-w-sm text-sm leading-6">
-                Private airport transfers from Ngurah Rai International
-                Airport to popular destinations throughout Bali.
+      {/* =========================
+          FOOTER
+      ========================== */}
+      <footer className="bg-slate-950 text-slate-400 py-12">
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div>
+              <h3 className="text-xl font-bold text-white">
+                Transfer Bali
+              </h3>
+
+              <p className="mt-3 text-sm leading-relaxed max-w-sm">
+                Private Bali airport transfer service from Ngurah Rai
+                International Airport to destinations throughout Bali.
               </p>
             </div>
 
             <div>
-              <h3 className="font-bold text-white">
+              <h3 className="font-semibold text-white mb-4">
                 Popular Transfers
               </h3>
 
-              <div className="mt-4 flex flex-col gap-2 text-sm">
+              <div className="space-y-2 text-sm">
+
                 <Link
                   href="/airport-transfer-ubud"
-                  className="hover:text-white"
+                  className="block hover:text-white transition-colors"
                 >
-                  Airport Transfer Ubud
+                  Bali Airport Transfer to Ubud
                 </Link>
 
                 <Link
                   href="/airport-transfer-canggu"
-                  className="hover:text-white"
+                  className="block hover:text-white transition-colors"
                 >
-                  Airport Transfer Canggu
+                  Bali Airport Transfer to Canggu
                 </Link>
 
                 <Link
                   href="/airport-transfer-uluwatu"
-                  className="hover:text-white"
+                  className="block hover:text-white transition-colors"
                 >
-                  Airport Transfer Uluwatu
+                  Bali Airport Transfer to Uluwatu
                 </Link>
 
                 <Link
                   href="/airport-transfer-munduk"
-                  className="hover:text-white"
+                  className="block hover:text-white transition-colors"
                 >
-                  Airport Transfer Munduk
+                  Bali Airport Transfer to Munduk
                 </Link>
+
+                <Link
+                  href="/airport-transfer-lovina"
+                  className="block hover:text-white transition-colors"
+                >
+                  Bali Airport Transfer to Lovina
+                </Link>
+
               </div>
             </div>
 
             <div>
-              <h3 className="font-bold text-white">
+              <h3 className="font-semibold text-white mb-4">
                 Contact
               </h3>
 
-              <div className="mt-4 flex flex-col gap-2 text-sm">
-                <Link
-                  href={whatsappUrl}
-                  className="hover:text-white"
-                >
-                  WhatsApp Booking
-                </Link>
+              <p className="text-sm">
+                Ngurah Rai International Airport
+                <br />
+                Bali, Indonesia
+              </p>
 
-                <Link
-                  href="/"
-                  className="hover:text-white"
-                >
-                  Transfer Bali
-                </Link>
-              </div>
+              <a
+                href={whatsappUrl}
+                className="inline-block mt-4 text-emerald-400 hover:text-emerald-300 font-semibold"
+              >
+                WhatsApp Booking →
+              </a>
             </div>
+
           </div>
 
-          <div className="mt-10 border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
+          <div className="border-t border-slate-800 mt-10 pt-6 text-center text-sm">
             © {new Date().getFullYear()} Transfer Bali. All rights reserved.
           </div>
+
         </div>
+
       </footer>
+
     </main>
   );
 }
