@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { supabase } from
-"@/lib/supabase";
+import { supabase } from "@/lib/supabase";
 
 export default function NewBookingPage() {
   const router = useRouter();
@@ -34,6 +33,8 @@ export default function NewBookingPage() {
     status: "Confirmed",
   });
 
+  const [saving, setSaving] = useState(false);
+
   const updateField = (field: string, value: string) => {
     setForm((prev) => ({
       ...prev,
@@ -41,65 +42,103 @@ export default function NewBookingPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
-    const newId = `BAT-${form.pickupDate.replaceAll("-", "")}-${Math.floor(
-      100 + Math.random() * 900
-    )}`;
+    if (saving) return;
 
-    const adults = Math.max(0, parseInt(form.adults) || 0);
-    const children = Math.max(0, parseInt(form.children) || 0);
+    setSaving(true);
+
+    const adults = Math.max(
+      0,
+      parseInt(form.adults) || 0
+    );
+
+    const children = Math.max(
+      0,
+      parseInt(form.children) || 0
+    );
+
     const totalPassengers = adults + children;
 
-    const newBooking = {
-      id: newId,
+    const newId = `BAT-${form.pickupDate.replaceAll(
+      "-",
+      ""
+    )}-${Math.floor(100 + Math.random() * 900)}`;
 
-      customerName: form.customerName,
-      whatsapp: form.whatsapp,
-
-      adults,
-      children,
-      passengers: totalPassengers,
-
-      pickupDate: form.pickupDate,
-      pickupTime: form.pickupTime,
-      pickupLocation: form.pickupLocation,
-      destination: form.destination,
-
-      flightNumber: form.flightNumber,
-      arrivalTime: form.arrivalTime,
-      hotel: form.hotel,
-
-      price: `${form.currency} ${form.price}`,
-      currency: form.currency,
-
-      driverName: form.driverName,
-      vehicle: form.vehicle,
-
-      notes: form.notes,
-      status: form.status,
-
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    };
+    const priceNumber = Number(
+      form.price.replace(/[^\d]/g, "")
+    );
 
     try {
-      const existing = JSON.parse(
-        localStorage.getItem("bat_bookings") || "[]"
-      );
+      const { error } = await supabase
+        .from("bookings")
+        .insert({
+          id: newId,
 
-      localStorage.setItem(
-        "bat_bookings",
-        JSON.stringify([newBooking, ...existing])
-      );
+          customer_name: form.customerName,
+          whatsapp: form.whatsapp,
+
+          adults,
+          children,
+          passengers: totalPassengers,
+
+          pickup_date: form.pickupDate,
+          pickup_time: form.pickupTime,
+          pickup_location: form.pickupLocation,
+          destination: form.destination,
+
+          flight_number:
+            form.flightNumber || null,
+
+          arrival_time:
+            form.arrivalTime || null,
+
+          hotel:
+            form.hotel || null,
+
+          price: priceNumber,
+          currency: form.currency,
+
+          driver_name:
+            form.driverName || null,
+
+          vehicle:
+            form.vehicle || null,
+
+          status: form.status,
+
+          notes:
+            form.notes || null,
+        });
+
+      if (error) {
+        console.error(
+          "Supabase insert error:",
+          error
+        );
+
+        alert(
+          `Booking gagal disimpan.\n\n${error.message}`
+        );
+
+        setSaving(false);
+        return;
+      }
 
       alert("Booking berhasil disimpan!");
 
       router.push("/admin/bookings");
     } catch (error) {
-      console.error("Failed to save booking:", error);
-      alert("Booking gagal disimpan. Silakan coba lagi.");
+      console.error(error);
+
+      alert(
+        "Terjadi kesalahan saat menyimpan booking."
+      );
+
+      setSaving(false);
     }
   };
 
@@ -108,7 +147,7 @@ export default function NewBookingPage() {
       <div className="mx-auto max-w-3xl">
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5 shadow-xl md:p-8">
 
-          {/* Header */}
+          {/* HEADER */}
           <div className="mb-6 flex items-center justify-between border-b border-slate-800 pb-4">
             <div>
               <h1 className="text-xl font-bold text-white">
@@ -128,7 +167,10 @@ export default function NewBookingPage() {
             </Link>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-7">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-7"
+          >
 
             {/* CUSTOMER */}
             <section>
@@ -148,7 +190,10 @@ export default function NewBookingPage() {
                     required
                     value={form.customerName}
                     onChange={(e) =>
-                      updateField("customerName", e.target.value)
+                      updateField(
+                        "customerName",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                     placeholder="Ms Liz Eden"
@@ -165,7 +210,10 @@ export default function NewBookingPage() {
                     required
                     value={form.whatsapp}
                     onChange={(e) =>
-                      updateField("whatsapp", e.target.value)
+                      updateField(
+                        "whatsapp",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                     placeholder="+628123456789"
@@ -183,7 +231,10 @@ export default function NewBookingPage() {
                     required
                     value={form.adults}
                     onChange={(e) =>
-                      updateField("adults", e.target.value)
+                      updateField(
+                        "adults",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                   />
@@ -199,11 +250,15 @@ export default function NewBookingPage() {
                     min="0"
                     value={form.children}
                     onChange={(e) =>
-                      updateField("children", e.target.value)
+                      updateField(
+                        "children",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                   />
                 </div>
+
               </div>
             </section>
 
@@ -225,7 +280,10 @@ export default function NewBookingPage() {
                     required
                     value={form.pickupDate}
                     onChange={(e) =>
-                      updateField("pickupDate", e.target.value)
+                      updateField(
+                        "pickupDate",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                   />
@@ -241,7 +299,10 @@ export default function NewBookingPage() {
                     required
                     value={form.pickupTime}
                     onChange={(e) =>
-                      updateField("pickupTime", e.target.value)
+                      updateField(
+                        "pickupTime",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                   />
@@ -257,7 +318,10 @@ export default function NewBookingPage() {
                     required
                     value={form.pickupLocation}
                     onChange={(e) =>
-                      updateField("pickupLocation", e.target.value)
+                      updateField(
+                        "pickupLocation",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                     placeholder="Amed Hotel"
@@ -274,12 +338,16 @@ export default function NewBookingPage() {
                     required
                     value={form.destination}
                     onChange={(e) =>
-                      updateField("destination", e.target.value)
+                      updateField(
+                        "destination",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                     placeholder="Canggu"
                   />
                 </div>
+
               </div>
             </section>
 
@@ -300,7 +368,10 @@ export default function NewBookingPage() {
                     type="text"
                     value={form.flightNumber}
                     onChange={(e) =>
-                      updateField("flightNumber", e.target.value)
+                      updateField(
+                        "flightNumber",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                     placeholder="JQ57"
@@ -316,7 +387,10 @@ export default function NewBookingPage() {
                     type="time"
                     value={form.arrivalTime}
                     onChange={(e) =>
-                      updateField("arrivalTime", e.target.value)
+                      updateField(
+                        "arrivalTime",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                   />
@@ -331,12 +405,16 @@ export default function NewBookingPage() {
                     type="text"
                     value={form.hotel}
                     onChange={(e) =>
-                      updateField("hotel", e.target.value)
+                      updateField(
+                        "hotel",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                     placeholder="The Payogan Resort & Spa"
                   />
                 </div>
+
               </div>
             </section>
 
@@ -358,7 +436,10 @@ export default function NewBookingPage() {
                     required
                     value={form.price}
                     onChange={(e) =>
-                      updateField("price", e.target.value)
+                      updateField(
+                        "price",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                     placeholder="700,000"
@@ -374,7 +455,10 @@ export default function NewBookingPage() {
                     type="text"
                     value={form.driverName}
                     onChange={(e) =>
-                      updateField("driverName", e.target.value)
+                      updateField(
+                        "driverName",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                     placeholder="Made Adi"
@@ -390,7 +474,10 @@ export default function NewBookingPage() {
                     type="text"
                     value={form.vehicle}
                     onChange={(e) =>
-                      updateField("vehicle", e.target.value)
+                      updateField(
+                        "vehicle",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                     placeholder="Toyota Avanza"
@@ -405,16 +492,31 @@ export default function NewBookingPage() {
                   <select
                     value={form.status}
                     onChange={(e) =>
-                      updateField("status", e.target.value)
+                      updateField(
+                        "status",
+                        e.target.value
+                      )
                     }
                     className="w-full rounded-xl border border-slate-700 bg-slate-800 px-3 py-2.5 text-white outline-none focus:border-amber-500"
                   >
-                    <option value="Pending">Pending</option>
-                    <option value="Confirmed">Confirmed</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Cancelled">Cancelled</option>
+                    <option value="Pending">
+                      Pending
+                    </option>
+
+                    <option value="Confirmed">
+                      Confirmed
+                    </option>
+
+                    <option value="Completed">
+                      Completed
+                    </option>
+
+                    <option value="Cancelled">
+                      Cancelled
+                    </option>
                   </select>
                 </div>
+
               </div>
             </section>
 
@@ -427,7 +529,10 @@ export default function NewBookingPage() {
               <textarea
                 value={form.notes}
                 onChange={(e) =>
-                  updateField("notes", e.target.value)
+                  updateField(
+                    "notes",
+                    e.target.value
+                  )
                 }
                 rows={4}
                 className="w-full resize-none rounded-xl border border-slate-700 bg-slate-800 px-3 py-3 text-white outline-none focus:border-amber-500"
@@ -440,9 +545,12 @@ export default function NewBookingPage() {
 
               <button
                 type="submit"
-                className="flex-1 rounded-xl bg-amber-500 py-3 font-semibold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-600"
+                disabled={saving}
+                className="flex-1 rounded-xl bg-amber-500 py-3 font-semibold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-600 disabled:cursor-not-allowed disabled:opacity-50"
               >
-                Save Booking
+                {saving
+                  ? "Saving..."
+                  : "Save Booking"}
               </button>
 
               <Link
@@ -453,6 +561,7 @@ export default function NewBookingPage() {
               </Link>
 
             </div>
+
           </form>
         </div>
       </div>
