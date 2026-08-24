@@ -2,116 +2,133 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { supabase } from "@/lib/supabase";
 
 export default function AdminLogin() {
-  const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-      const [error, setError] = useState("");
-        const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-          const router = useRouter();
+  const router = useRouter();
 
-            const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
-                e.preventDefault();
-                    setError("");
-                        setIsLoading(true);
+  const handleLogin = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
 
-                            // Login sementara untuk tahap development
-                                if (username === "adminbat" && password === "bali2026") {
-                                      // Membuat session cookie selama 1 hari
-                                            document.cookie =
-                                                    "admin_session=active; path=/; max-age=86400; SameSite=Lax";
+    setError("");
+    setIsLoading(true);
 
-                                                          router.push("/admin/bookings");
-                                                                return;
-                                                                    }
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    });
 
-                                                                        setIsLoading(false);
-                                                                            setError("Username atau password salah!");
-                                                                              };
+    if (error) {
+      console.error("Login error:", error);
 
-                                                                                return (
-                                                                                    <main className="min-h-screen flex items-center justify-center bg-slate-950 px-4">
-                                                                                          <div className="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900 p-8 shadow-2xl">
-                                                                                                  {/* Header */}
-                                                                                                          <div className="mb-8 text-center">
-                                                                                                                    <h1 className="text-2xl font-bold text-white">
-                                                                                                                                BAT Admin Portal
-                                                                                                                                          </h1>
+      setError("Email atau password salah.");
+      setIsLoading(false);
+      return;
+    }
 
-                                                                                                                                                    <p className="mt-1 text-sm text-slate-400">
-                                                                                                                                                                Kelola booking Bali Airport Transfer
-                                                                                                                                                                          </p>
-                                                                                                                                                                                  </div>
+    router.push("/admin/bookings");
+  };
 
-                                                                                                                                                                                          {/* Error */}
-                                                                                                                                                                                                  {error && (
-                                                                                                                                                                                                            <div className="mb-4 rounded-lg border border-red-500/30 bg-red-500/15 p-3 text-center text-sm text-red-400">
-                                                                                                                                                                                                                        {error}
-                                                                                                                                                                                                                                  </div>
-                                                                                                                                                                                                                                          )}
+  return (
+    <main className="min-h-screen flex items-center justify-center bg-slate-950 px-4">
+      <div className="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-900 p-8 shadow-2xl">
 
-                                                                                                                                                                                                                                                  {/* Login Form */}
-                                                                                                                                                                                                                                                          <form onSubmit={handleLogin} className="space-y-4">
-                                                                                                                                                                                                                                                                    {/* Username */}
-                                                                                                                                                                                                                                                                              <div>
-                                                                                                                                                                                                                                                                                          <label
-                                                                                                                                                                                                                                                                                                        htmlFor="username"
-                                                                                                                                                                                                                                                                                                                      className="mb-1 block text-xs font-medium text-slate-300"
-                                                                                                                                                                                                                                                                                                                                  >
-                                                                                                                                                                                                                                                                                                                                                Username / Email
-                                                                                                                                                                                                                                                                                                                                                            </label>
+        {/* Header */}
+        <div className="mb-8 text-center">
+          <h1 className="text-2xl font-bold text-white">
+            BAT Admin Portal
+          </h1>
 
-                                                                                                                                                                                                                                                                                                                                                                        <input
-                                                                                                                                                                                                                                                                                                                                                                                      id="username"
-                                                                                                                                                                                                                                                                                                                                                                                                    type="text"
-                                                                                                                                                                                                                                                                                                                                                                                                                  required
-                                                                                                                                                                                                                                                                                                                                                                                                                                autoComplete="username"
-                                                                                                                                                                                                                                                                                                                                                                                                                                              value={username}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            onChange={(e) => setUsername(e.target.value)}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                          className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white outline-none transition focus:border-amber-500"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        placeholder="adminbat"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+          <p className="mt-1 text-sm text-slate-400">
+            Kelola booking Bali Airport Transfer
+          </p>
+        </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        {/* Password */}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              <label
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            htmlFor="password"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          className="mb-1 block text-xs font-medium text-slate-300"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      >
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Password
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </label>
+        {/* Error */}
+        {error && (
+          <div className="mb-4 rounded-lg border border-red-500/30 bg-red-500/15 p-3 text-center text-sm text-red-400">
+            {error}
+          </div>
+        )}
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <input
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          id="password"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        type="password"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      required
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    autoComplete="current-password"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  value={password}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                onChange={(e) => setPassword(e.target.value)}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white outline-none transition focus:border-amber-500"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            placeholder="••••••••"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        />
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </div>
+        {/* Login Form */}
+        <form
+          onSubmit={handleLogin}
+          className="space-y-4"
+        >
+          {/* Email */}
+          <div>
+            <label
+              htmlFor="email"
+              className="mb-1 block text-xs font-medium text-slate-300"
+            >
+              Admin Email
+            </label>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            {/* Login Button */}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <button
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  type="submit"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              disabled={isLoading}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          className="w-full rounded-xl bg-amber-500 py-3 font-semibold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-600 disabled:cursor-not-allowed disabled:opacity-60"
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    >
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {isLoading ? "Logging in..." : "Login to Dashboard"}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </button>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </form>
+            <input
+              id="email"
+              type="email"
+              required
+              autoComplete="email"
+              value={email}
+              onChange={(e) =>
+                setEmail(e.target.value)
+              }
+              className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white outline-none transition focus:border-amber-500"
+              placeholder="admin@example.com"
+            />
+          </div>
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          {/* Development Info */}
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <div className="mt-6 rounded-lg border border-slate-800 bg-slate-950/50 p-3 text-center">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <p className="text-xs text-slate-500">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        BAT Admin • Secure Booking Management
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  </p>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </div>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </main>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      );
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      }
+          {/* Password */}
+          <div>
+            <label
+              htmlFor="password"
+              className="mb-1 block text-xs font-medium text-slate-300"
+            >
+              Password
+            </label>
+
+            <input
+              id="password"
+              type="password"
+              required
+              autoComplete="current-password"
+              value={password}
+              onChange={(e) =>
+                setPassword(e.target.value)
+              }
+              className="w-full rounded-xl border border-slate-700 bg-slate-800 px-4 py-3 text-sm text-white outline-none transition focus:border-amber-500"
+              placeholder="••••••••"
+            />
+          </div>
+
+          {/* Login Button */}
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="w-full rounded-xl bg-amber-500 py-3 font-semibold text-slate-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-600 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {isLoading
+              ? "Logging in..."
+              : "Login to Dashboard"}
+          </button>
+        </form>
+
+        {/* Footer */}
+        <div className="mt-6 rounded-lg border border-slate-800 bg-slate-950/50 p-3 text-center">
+          <p className="text-xs text-slate-500">
+            BAT Admin • Secure Booking Management
+          </p>
+        </div>
+
+      </div>
+    </main>
+  );
+}
