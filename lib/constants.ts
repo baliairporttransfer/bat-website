@@ -32,6 +32,7 @@ export const NAV_LINKS = [
   { label: "Fleet", href: "#fleet" },
   { label: "About", href: "#about" },
   { label: "Reviews", href: "#reviews" },
+  { label: "Gallery", href: "#gallery" }
   { label: "FAQ", href: "#faq" },
 ] as const;
 
