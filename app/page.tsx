@@ -6,6 +6,7 @@ import  Fleet  from "@/components/Fleet";
 import { Footer } from "@/components/Footer";
 import  Hero  from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
+import Gallery from "@/components/Gallery";
 import { Testimonials } from "@/components/Testimonials";
 import { WhyChoose } from "@/components/WhyChoose";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -37,6 +38,7 @@ export default function HomePage() {
         <Destinations />
         <Fleet />
         <Testimonials />
+        <Gallery/>
         <FAQ />
         <Contact />
       </main>
