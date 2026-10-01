@@ -12,7 +12,7 @@ export default function Gallery() {
                                                           Our Gallery
                                                                     </h2>
                                                                               <p className="mt-3 text-lg text-gray-600">
-                                                                                          Momen perjalanan tak terlupakan bersama pelanggan kami.
+                                                                                          Unforgettable travel moments with our customers.
                                                                                                     </p>
                                                                                                             </div>
 
