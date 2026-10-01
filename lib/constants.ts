@@ -28,6 +28,7 @@ export const SITE_CONFIG = {
 
 export const NAV_LINKS = [
   { label: "Services", href: "#services" },
+  { label: "Harbour Transfer", href: "/harbour-transfer" },
   { label: "Prices", href: "#prices" },
   { label: "Fleet", href: "#fleet" },
   { label: "About", href: "#about" },
