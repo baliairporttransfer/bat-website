@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Pages -->
+  <url>
+    <loc>https://transferbali.com</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://transferbali.com/harbour-transfer</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Airport Transfer Pages -->
+  <url><loc>https://transferbali.com/airport-transfer-munduk</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-lovina</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-sidemen</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-amed</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-ubud</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-uluwatu</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-seminyak</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-nusa-dua</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-sanur</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-canggu</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-tanah-lot</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-tegallalang</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-padangbai</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-bedugul</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/airport-transfer-pemuteran</loc><priority>0.8</priority></url>
+
+  <!-- Harbour Transfer Routes: Padangbai (17 Destinations) -->
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-canggu</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-kuta</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-sanur</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-padangbai</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-gilimanuk</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-munduk</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-lovina</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-amed</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-sidemen</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-airport</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-uluwatu</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-jimbaran</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-nusa-dua</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-ubud</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-tegallalang</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-pemuteran</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/padangbai-to-jatiluwih</loc><priority>0.8</priority></url>
+
+  <!-- Harbour Transfer Routes: Sanur (17 Destinations) -->
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-canggu</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-kuta</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-sanur</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-padangbai</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-gilimanuk</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-munduk</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-lovina</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-amed</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-sidemen</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-airport</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-uluwatu</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-jimbaran</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-nusa-dua</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-ubud</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-tegallalang</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-pemuteran</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/sanur-to-jatiluwih</loc><priority>0.8</priority></url>
+
+  <!-- Harbour Transfer Routes: Gilimanuk (17 Destinations) -->
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-canggu</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-kuta</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-sanur</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-padangbai</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-gilimanuk</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-munduk</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-lovina</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-amed</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-sidemen</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-airport</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-uluwatu</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-jimbaran</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-nusa-dua</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-ubud</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-tegallalang</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-pemuteran</loc><priority>0.8</priority></url>
+  <url><loc>https://transferbali.com/harbour-transfer/gilimanuk-to-jatiluwih</loc><priority>0.8</priority></url>
+</urlset>
