@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
+import { harbourRoutesData } from "@/data/harbourRoutes";
 
 // Admin WhatsApp Number
 const WHATSAPP_NUMBER = "6285738217365";
@@ -24,6 +25,7 @@ interface Harbour {
   routes: RouteOption[];
 }
 
+// Data pelabuhan yang otomatis mengambil rute dan harga dari harbourRoutes.ts
 const harbourData: Harbour[] = [
   {
     id: "padangbai",
@@ -31,24 +33,16 @@ const harbourData: Harbour[] = [
     location: "Karangasem, East Bali",
     description: "Primary fast boat port for Gili Islands, Lombok, and Nusa Penida transfers.",
     icon: "🚢",
-    routes: [
-      { slug: "padangbai-to-airport", destination: "Ngurah Rai Airport (DPS)", region: "South Bali", duration: "1.5 - 2 Hours", price: "IDR 500,000", badge: "Popular" },
-      { slug: "padangbai-to-kuta", destination: "Kuta / Legian", region: "South Bali", duration: "1.5 - 2 Hours", price: "IDR 400,000" },
-      { slug: "padangbai-to-sanur", destination: "Sanur", region: "South East Bali", duration: "1 - 1.5 Hours", price: "IDR 350,000" },
-      { slug: "padangbai-to-canggu", destination: "Canggu", region: "South West Bali", duration: "2 - 2.5 Hours", price: "IDR 450,000" },
-      { slug: "padangbai-to-ubud", destination: "Ubud Centre", region: "Central Bali", duration: "1 - 1.5 Hours", price: "IDR 350,000", badge: "Top Choice" },
-      { slug: "padangbai-to-uluwatu", destination: "Uluwatu / Ungasan", region: "South Bali", duration: "2 - 2.5 Hours", price: "IDR 500,000" },
-      { slug: "padangbai-to-jimbaran", destination: "Jimbaran", region: "South Bali", duration: "1.5 - 2 Hours", price: "IDR 450,000" },
-      { slug: "padangbai-to-nusa-dua", destination: "Nusa Dua", region: "South Bali", duration: "1.5 - 2 Hours", price: "IDR 450,000" },
-      { slug: "padangbai-to-amed", destination: "Amed", region: "East Bali", duration: "1 - 1.5 Hours", price: "IDR 450,000" },
-      { slug: "padangbai-to-sidemen", destination: "Sidemen", region: "East Bali", duration: "45 Mins - 1 Hour", price: "IDR 350,000" },
-      { slug: "padangbai-to-munduk", destination: "Munduk", region: "North Bali", duration: "2.5 - 3 Hours", price: "IDR 650,000", badge: "Scenic Route" },
-      { slug: "padangbai-to-lovina", destination: "Lovina", region: "North Bali", duration: "2.5 - 3 Hours", price: "IDR 700,000" },
-      { slug: "padangbai-to-tegallalang", destination: "Tegallalang", region: "Central Bali", duration: "1.5 Hours", price: "IDR 400,000" },
-      { slug: "padangbai-to-pemuteran", destination: "Pemuteran", region: "North West Bali", duration: "3.5 - 4 Hours", price: "IDR 850,000" },
-      { slug: "padangbai-to-gilimanuk", destination: "Gilimanuk Harbour", region: "West Bali", duration: "4 - 4.5 Hours", price: "IDR 850,000" },
-      { slug: "padangbai-to-padangbai", destination: "Padangbai Local Area", region: "East Bali", duration: "10 - 15 Mins", price: "IDR 150,000" },
-    ],
+    routes: Object.values(harbourRoutesData)
+      .filter((r) => r.slug.startsWith("padangbai-"))
+      .map((r) => ({
+        slug: r.slug,
+        destination: r.to.split("&")[0].trim(),
+        region: r.to.includes("Airport") ? "South Bali" : "Bali Region",
+        duration: r.duration,
+        price: r.price,
+        badge: r.slug.includes("airport") ? "Popular" : r.slug.includes("ubud") ? "Top Choice" : undefined,
+      })),
   },
   {
     id: "sanur",
@@ -56,24 +50,16 @@ const harbourData: Harbour[] = [
     location: "Denpasar, South East Bali",
     description: "Main harbor connecting mainland Bali to Nusa Penida and Nusa Lembongan.",
     icon: "🛥️",
-    routes: [
-      { slug: "sanur-to-airport", destination: "Ngurah Rai Airport (DPS)", region: "South Bali", duration: "30 - 45 Mins", price: "IDR 250,000", badge: "Most Popular" },
-      { slug: "sanur-to-kuta", destination: "Kuta / Legian", region: "South Bali", duration: "30 - 45 Mins", price: "IDR 250,000" },
-      { slug: "sanur-to-canggu", destination: "Canggu", region: "South West Bali", duration: "1 - 1.5 Hours", price: "IDR 350,000" },
-      { slug: "sanur-to-ubud", destination: "Ubud Centre", region: "Central Bali", duration: "45 Mins - 1 Hour", price: "IDR 350,000", badge: "Best Seller" },
-      { slug: "sanur-to-uluwatu", destination: "Uluwatu / Ungasan", region: "South Bali", duration: "1 - 1.5 Hours", price: "IDR 350,000" },
-      { slug: "sanur-to-jimbaran", destination: "Jimbaran", region: "South Bali", duration: "45 Mins - 1 Hour", price: "IDR 300,000" },
-      { slug: "sanur-to-nusa-dua", destination: "Nusa Dua", region: "South Bali", duration: "45 Mins - 1 Hour", price: "IDR 300,000" },
-      { slug: "sanur-to-padangbai", destination: "Padangbai Harbour", region: "East Bali", duration: "1 - 1.5 Hours", price: "IDR 400,000" },
-      { slug: "sanur-to-amed", destination: "Amed", region: "East Bali", duration: "2 - 2.5 Hours", price: "IDR 500,000" },
-      { slug: "sanur-to-sidemen", destination: "Sidemen", region: "East Bali", duration: "1.5 Hours", price: "IDR 400,000" },
-      { slug: "sanur-to-munduk", destination: "Munduk", region: "North Bali", duration: "2 - 2.5 Hours", price: "IDR 650,000" },
-      { slug: "sanur-to-lovina", destination: "Lovina", region: "North Bali", duration: "2.5 - 3 Hours", price: "IDR 650,000" },
-      { slug: "sanur-to-tegallalang", destination: "Tegallalang", region: "Central Bali", duration: "1.2 Hours", price: "IDR 350,000" },
-      { slug: "sanur-to-pemuteran", destination: "Pemuteran", region: "North West Bali", duration: "3.5 - 4 Hours", price: "IDR 800,000" },
-      { slug: "sanur-to-gilimanuk", destination: "Gilimanuk Harbour", region: "West Bali", duration: "3.5 - 4 Hours", price: "IDR 750,000" },
-      { slug: "sanur-to-sanur", destination: "Sanur Local Area", region: "South East Bali", duration: "10 - 15 Mins", price: "IDR 150,000" },
-    ],
+    routes: Object.values(harbourRoutesData)
+      .filter((r) => r.slug.startsWith("sanur-"))
+      .map((r) => ({
+        slug: r.slug,
+        destination: r.to.split("&")[0].trim(),
+        region: r.to.includes("Airport") ? "South Bali" : "Bali Region",
+        duration: r.duration,
+        price: r.price,
+        badge: r.slug.includes("airport") ? "Most Popular" : r.slug.includes("ubud") ? "Best Seller" : undefined,
+      })),
   },
   {
     id: "gilimanuk",
@@ -81,21 +67,16 @@ const harbourData: Harbour[] = [
     location: "Jembrana, West Bali",
     description: "Ferry port connecting Java Island (Ketapang) to Bali.",
     icon: "🚢",
-    routes: [
-      { slug: "gilimanuk-to-airport", destination: "Ngurah Rai Airport (DPS)", region: "South Bali", duration: "3.5 - 4 Hours", price: "IDR 750,000", badge: "Long Distance" },
-      { slug: "gilimanuk-to-kuta", destination: "Kuta / Seminyak", region: "South Bali", duration: "3.5 Hours", price: "IDR 750,000" },
-      { slug: "gilimanuk-to-sanur", destination: "Sanur", region: "South East Bali", duration: "3.5 - 4 Hours", price: "IDR 750,000" },
-      { slug: "gilimanuk-to-canggu", destination: "Canggu", region: "South West Bali", duration: "3 - 3.5 Hours", price: "IDR 750,000" },
-      { slug: "gilimanuk-to-ubud", destination: "Ubud Centre", region: "Central Bali", duration: "3 - 3.5 Hours", price: "IDR 800,000" },
-      { slug: "gilimanuk-to-pemuteran", destination: "Pemuteran", region: "North West Bali", duration: "30 - 45 Mins", price: "IDR 300,000", badge: "Nearby" },
-      { slug: "gilimanuk-to-lovina", destination: "Lovina", region: "North Bali", duration: "1.5 - 2 Hours", price: "IDR 500,000" },
-      { slug: "gilimanuk-to-munduk", destination: "Munduk", region: "North Bali", duration: "2 - 2.5 Hours", price: "IDR 600,000" },
-      { slug: "gilimanuk-to-uluwatu", destination: "Uluwatu / Ungasan", region: "South Bali", duration: "4 Hours", price: "IDR 800,000" },
-      { slug: "gilimanuk-to-jimbaran", destination: "Jimbaran", region: "South Bali", duration: "3.5 Hours", price: "IDR 750,000" },
-      { slug: "gilimanuk-to-padangbai", destination: "Padangbai Harbour", region: "East Bali", duration: "4 - 4.5 Hours", price: "IDR 850,000" },
-      { slug: "gilimanuk-to-amed", destination: "Amed", region: "East Bali", duration: "3.5 - 4 Hours", price: "IDR 850,000" },
-      { slug: "gilimanuk-to-gilimanuk", destination: "Gilimanuk Local Area", region: "West Bali", duration: "10 - 15 Mins", price: "IDR 150,000" },
-    ],
+    routes: Object.values(harbourRoutesData)
+      .filter((r) => r.slug.startsWith("gilimanuk-"))
+      .map((r) => ({
+        slug: r.slug,
+        destination: r.to.split("&")[0].trim(),
+        region: r.to.includes("Airport") ? "South Bali" : "Bali Region",
+        duration: r.duration,
+        price: r.price,
+        badge: r.slug.includes("airport") ? "Long Distance" : r.slug.includes("pemuteran") ? "Nearby" : undefined,
+      })),
   },
 ];
 
@@ -125,10 +106,22 @@ export default function HarbourTransferPage() {
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 font-sans pb-20">
       {/* Hero Header */}
-      <div className="relative bg-gradient-to-b from-blue-950 via-slate-900 to-slate-900 pt-16 pb-12 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+      <div className="relative bg-gradient-to-b from-blue-950 via-slate-900 to-slate-900 pt-10 pb-12 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
         
         <div className="max-w-4xl mx-auto relative z-10">
+          {/* Breadcrumb Navigation / Home Button */}
+          <nav className="text-xs text-slate-400 mb-6 flex items-center justify-center gap-2">
+            <Link 
+              href="/" 
+              className="inline-flex items-center gap-1.5 bg-slate-800/80 hover:bg-blue-600 text-slate-200 hover:text-white px-3.5 py-1.5 rounded-full border border-slate-700/80 transition-all font-medium text-xs shadow-sm"
+            >
+              <span>🏠 Home</span>
+            </Link>
+            <span>/</span>
+            <span className="text-blue-400 font-semibold">Harbour Transfer</span>
+          </nav>
+
           <span className="inline-block bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4">
             Official Bali Harbour Shuttle & Private Drivers
           </span>
