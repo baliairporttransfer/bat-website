@@ -1,117 +1,105 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { harbourRoutesData, RouteDetail } from "@/data/harbourRoutes";
 
 const WHATSAPP_NUMBER = "6285738217365";
 
-interface RouteDetail {
-  title: string;
-  from: string;
-  fromPortName: string;
-  to: string;
-  price: string;
-  priceUSD: string;
-  duration: string;
-  distance: string;
-  description: string;
-  routeHighlights: string[];
-  pickupGuide: string;
-  faqs: { question: string; answer: string }[];
+// Fungsi helper untuk mengambil data rute dari file pusat / kalkulasi dinamis
+function getRouteDetail(slug: string): RouteDetail {
+  // 1. Ambil langsung jika slug ada di database pusat harbourRoutes.ts
+  if (harbourRoutesData[slug]) {
+    return harbourRoutesData[slug];
+  }
+
+  // 2. Fallback Kalkulator Otomatis berdasarkan patokan harga utama jika slug belum terdaftar
+  const parts = slug.split("-to-");
+  const rawFrom = parts[0] ? parts[0].toLowerCase() : "harbour";
+  const rawTo = parts[1] ? parts[1].toLowerCase() : "destination";
+
+  const fromName = rawFrom.charAt(0).toUpperCase() + rawFrom.slice(1);
+  const toName = rawTo.charAt(0).toUpperCase() + rawTo.slice(1);
+
+  let price = "IDR 400,000";
+  let priceUSD = "approx. $26 USD";
+  let duration = "1.5 - 2 Hours";
+  let distance = "approx. 50 km";
+
+  // Penyesuaian Patokan Harga Berdasarkan Asal Port
+  if (rawFrom.includes("gilimanuk")) {
+    if (rawTo.includes("pemuteran")) {
+      price = "IDR 300,000"; priceUSD = "approx. $19 USD"; duration = "45 Mins"; distance = "30 km";
+    } else if (rawTo.includes("lovin")) {
+      price = "IDR 500,000"; priceUSD = "approx. $32 USD"; duration = "1.5 Hours"; distance = "78 km";
+    } else if (rawTo.includes("ubud")) {
+      price = "IDR 800,000"; priceUSD = "approx. $51 USD"; duration = "3.5 Hours"; distance = "130 km";
+    } else {
+      price = "IDR 750,000"; priceUSD = "approx. $48 USD"; duration = "3.5 - 4 Hours"; distance = "135 km";
+    }
+  } else if (rawFrom.includes("sanur")) {
+    if (rawTo.includes("airport") || rawTo.includes("kuta")) {
+      price = "IDR 250,000"; priceUSD = "approx. $16 USD"; duration = "30 - 45 Mins"; distance = "16 km";
+    } else if (rawTo.includes("canggu") || rawTo.includes("ubud") || rawTo.includes("uluwatu")) {
+      price = "IDR 350,000"; priceUSD = "approx. $23 USD"; duration = "1 Hour"; distance = "25 km";
+    } else if (rawTo.includes("munduk") || rawTo.includes("lovin")) {
+      price = "IDR 650,000"; priceUSD = "approx. $42 USD"; duration = "2.5 Hours"; distance = "85 km";
+    }
+  } else if (rawFrom.includes("padangbai")) {
+    if (rawTo.includes("ubud")) {
+      price = "IDR 350,000"; priceUSD = "approx. $23 USD"; duration = "1 Hour"; distance = "42 km";
+    } else if (rawTo.includes("kuta")) {
+      price = "IDR 400,000"; priceUSD = "approx. $26 USD"; duration = "1.5 Hours"; distance = "55 km";
+    } else if (rawTo.includes("canggu") || rawTo.includes("amed")) {
+      price = "IDR 450,000"; priceUSD = "approx. $29 USD"; duration = "1.5 - 2 Hours"; distance = "60 km";
+    } else if (rawTo.includes("airport") || rawTo.includes("uluwatu")) {
+      price = "IDR 500,000"; priceUSD = "approx. $32 USD"; duration = "1.5 - 2 Hours"; distance = "60 - 70 km";
+    } else if (rawTo.includes("munduk")) {
+      price = "IDR 650,000"; priceUSD = "approx. $42 USD"; duration = "2.5 - 3 Hours"; distance = "95 km";
+    }
+  }
+
+  return {
+    slug,
+    title: `Private Transfer ${fromName} Harbour to ${toName}`,
+    from: `${fromName} Harbour`,
+    fromPortName: `${fromName} Fast Boat Port`,
+    to: `${toName} Area`,
+    price,
+    priceUSD,
+    duration,
+    distance,
+    description: `Need a reliable private driver from ${fromName} Harbour to ${toName}? TransferBali provides air-conditioned private vehicles with professional drivers at competitive transparent fixed rates.`,
+    routeHighlights: [
+      "100% Private vehicle - No sharing with strangers",
+      "Air-conditioned MPV (Toyota Avanza / Suzuki APV)",
+      "Direct door-to-door hotel pickup and drop-off",
+      "All-inclusive fixed rate: Petrol, parking fees & driver included",
+    ],
+    pickupGuide: `Your driver will be waiting at the designated ${fromName} Harbour arrival exit holding a greeting sign with your name.`,
+    faqs: [
+      {
+        question: "Is this price fixed or per person?",
+        answer: `Our rate of ${price} is a fixed total price per private vehicle (up to 4 passengers with luggage), NOT per person.`,
+      },
+      {
+        question: "What if our fast boat is delayed?",
+        answer: "No worries! We monitor fast boat arrival times at the port. Your driver will wait without extra charges.",
+      },
+    ],
+  };
 }
 
-// Database Rute Lengkap & Detail
-const routesData: Record<string, RouteDetail> = {
-  "padangbai-to-munduk": {
-    title: "Private Transfer Padangbai Harbour to Munduk Bali",
-    from: "Padangbai Harbour",
-    fromPortName: "Padangbai Fast Boat Port (East Bali)",
-    to: "Munduk Village & Lake Region (North Bali)",
-    price: "IDR 650,000",
-    priceUSD: "approx. $42 USD",
-    duration: "2.5 - 3 Hours",
-    distance: "approx. 95 km",
-    description:
-      "Arriving at Padangbai Harbour after a fast boat journey from Gili Trawangan, Gili Air, Gili Meno, or Lombok? Avoid the hassle of negotiating with aggressive local port drivers or waiting for public shuttle buses. Our private transfer service from Padangbai to Munduk offers a smooth, air-conditioned, direct door-to-door journey through Bali's beautiful central highlands.",
-    routeHighlights: [
-      "Scenic drive through Sidemen valley or Bedugul highlands",
-      "Pass by Lake Beratan and Twin Lakes (Buyan & Tamblingan)",
-      "Cool mountain breeze as you elevate into North Bali",
-      "Direct drop-off to your hotel, villa, or homestay anywhere in Munduk",
-    ],
-    pickupGuide:
-      "Upon disembarking from your fast boat at Padangbai, walk towards the main arrival exit gate. Your driver will be waiting in the designated meeting area holding a greeting sign with your name clearly printed on it.",
-    faqs: [
-      {
-        question: "How do I find my driver at Padangbai Harbour?",
-        answer:
-          "Your assigned driver will wait near the main exit arrival gate with a sign displaying your name. We will also share the driver's contact details via WhatsApp prior to your arrival.",
-      },
-      {
-        question: "What if my fast boat from Gili or Lombok is delayed?",
-        answer:
-          "No worries! We monitor fast boat arrival times at Padangbai port. Your private driver will wait for you without extra charges if your boat experiences delay due to sea weather.",
-      },
-      {
-        question: "Is the price fixed or per person?",
-        answer:
-          "Our rate of IDR 650,000 is a fixed total price per private vehicle (up to 4 passengers with luggage), NOT per person. It includes petrol, parking, and driver fees.",
-      },
-      {
-        question: "Can we stop for lunch or ATM on the way?",
-        answer:
-          "Yes! Because it's a 100% private car, you can request brief stops for lunch, ATM withdrawal, or supermarket shopping at no additional charge.",
-      },
-    ],
-  },
-  "padangbai-to-ubud": {
-    title: "Private Transfer Padangbai Harbour to Ubud Centre",
-    from: "Padangbai Harbour",
-    fromPortName: "Padangbai Fast Boat Port",
-    to: "Ubud Centre & Surrounding Villages",
-    price: "IDR 350,000",
-    priceUSD: "approx. $23 USD",
-    duration: "1 - 1.5 Hours",
-    distance: "approx. 42 km",
-    description:
-      "Get a stress-free private driver from Padangbai Harbour directly to your villa in Ubud. Perfect for travelers coming back from the Gili Islands who want a quick, comfortable, and affordable ride to Bali's cultural heartland.",
-    routeHighlights: [
-      "Shortest drive route from East Bali to Central Bali",
-      "Pass through traditional silver and woodcarving villages (Celuk & Mas)",
-      "Direct drop-off to Ubud Centre, Tegallalang, Penestanan, or Sayan",
-    ],
-    pickupGuide:
-      "Your driver will be waiting at the Padangbai Harbour arrival gate holding your name card.",
-    faqs: [
-      {
-        question: "How long is the drive from Padangbai to Ubud?",
-        answer:
-          "Under normal traffic conditions, the drive takes around 60 to 90 minutes.",
-      },
-      {
-        question: "Does the price cover hotel drop-off outside Ubud Centre?",
-        answer:
-          "Yes, drop-off in surrounding areas like Penestanan, Campuhan, Tegallalang, and Kedewatan is fully included.",
-      },
-    ],
-  },
-};
-
-// 1. DYNAMIC METADATA (SEO Otomatis Berorientasi Kata Kunci)
+// 1. DYNAMIC METADATA (SEO Otomatis)
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const route = routesData[slug];
+  const route = getRouteDetail(slug);
 
-  const pageTitle = route
-    ? `${route.title} | Fixed Rate ${route.price}`
-    : `${slug.replace(/-/g, " ").toUpperCase()} Private Transfer | TransferBali`;
-
-  const pageDesc = route
-    ? `${route.description.substring(0, 150)}... Fixed rate ${route.price}. Air-conditioned car, English driver, direct pickup.`
-    : `Book reliable private taxi transfer for ${slug.replace("-to-", " to ")} with TransferBali.`;
+  const pageTitle = `${route.title} | Fixed Rate ${route.price}`;
+  const pageDesc = `${route.description.substring(0, 150)}... Fixed rate ${route.price}. Air-conditioned car, English driver, direct pickup.`;
 
   return {
     title: pageTitle,
@@ -131,46 +119,14 @@ export async function generateMetadata({
   };
 }
 
-// 2. MAIN COMPONENT (Render Halaman SEO Lengkap)
+// 2. MAIN COMPONENT (Render Halaman Detail Rute)
 export default async function DynamicRoutePage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-
-  // Fallback data jika slug belum ada di database (menggunakan Fixed Price standar)
-  const route = routesData[slug] || {
-    title: `Private Transfer ${slug.replace("-to-", " to ").toUpperCase()}`,
-    from: slug.split("-to-")[0]?.toUpperCase() || "Harbour Port",
-    fromPortName: "Bali Harbor Port",
-    to: slug.split("-to-")[1]?.toUpperCase() || "Destination",
-    price: "IDR 550,000",
-    priceUSD: "approx. $36 USD",
-    duration: "2 - 3 Hours",
-    distance: "Direct Route",
-    description: `Need a reliable private driver from ${slug.split("-to-")[0]} to ${slug.split("-to-")[1]}? TransferBali provides air-conditioned private vehicles with professional drivers at competitive transparent fixed rates.`,
-    routeHighlights: [
-      "100% Private vehicle - No sharing with strangers",
-      "Air-conditioned MPV (Toyota Avanza / Suzuki APV)",
-      "Direct door-to-door hotel pickup and drop-off",
-      "All-inclusive rate: Petrol, parking fees & driver included",
-    ],
-    pickupGuide:
-      "Your driver will be waiting at the designated arrival area with a name sign.",
-    faqs: [
-      {
-        question: "Is booking in advance required?",
-        answer:
-          "Yes, we highly recommend booking at least 1 day in advance so our driver can be waiting at the port before your boat docks.",
-      },
-      {
-        question: "Is the price fixed?",
-        answer:
-          "Yes, our rate is a fixed total price per private vehicle (up to 4 passengers with luggage), inclusive of petrol and parking fees.",
-      },
-    ],
-  };
+  const route = getRouteDetail(slug);
 
   const waText = `Hello TransferBali, I want to book private transfer: *${route.title}* (${route.price}). Please check availability for my date.`;
   const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`;
