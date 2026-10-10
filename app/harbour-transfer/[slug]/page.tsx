@@ -139,17 +139,17 @@ export default async function DynamicRoutePage({
 }) {
   const { slug } = await params;
 
-  // Fallback data jika slug belum ada di database
+  // Fallback data jika slug belum ada di database (menggunakan Fixed Price standar)
   const route = routesData[slug] || {
     title: `Private Transfer ${slug.replace("-to-", " to ").toUpperCase()}`,
     from: slug.split("-to-")[0]?.toUpperCase() || "Harbour Port",
     fromPortName: "Bali Harbor Port",
     to: slug.split("-to-")[1]?.toUpperCase() || "Destination",
-    price: "Contact Admin for Best Price",
-    priceUSD: "",
+    price: "IDR 550,000",
+    priceUSD: "approx. $36 USD",
     duration: "2 - 3 Hours",
     distance: "Direct Route",
-    description: `Need a reliable private driver from ${slug.split("-to-")[0]} to ${slug.split("-to-")[1]}? TransferBali provides air-conditioned private vehicles with professional drivers at competitive transparent rates.`,
+    description: `Need a reliable private driver from ${slug.split("-to-")[0]} to ${slug.split("-to-")[1]}? TransferBali provides air-conditioned private vehicles with professional drivers at competitive transparent fixed rates.`,
     routeHighlights: [
       "100% Private vehicle - No sharing with strangers",
       "Air-conditioned MPV (Toyota Avanza / Suzuki APV)",
@@ -163,6 +163,11 @@ export default async function DynamicRoutePage({
         question: "Is booking in advance required?",
         answer:
           "Yes, we highly recommend booking at least 1 day in advance so our driver can be waiting at the port before your boat docks.",
+      },
+      {
+        question: "Is the price fixed?",
+        answer:
+          "Yes, our rate is a fixed total price per private vehicle (up to 4 passengers with luggage), inclusive of petrol and parking fees.",
       },
     ],
   };
@@ -318,7 +323,7 @@ export default async function DynamicRoutePage({
           </p>
         </section>
 
-        {/* FAQ Section (Crucial for Google SEO Rich Snippets) */}
+        {/* FAQ Section */}
         <section className="bg-slate-800/50 border border-slate-700/80 rounded-2xl p-6">
           <h2 className="text-xl font-bold text-white mb-4">
             ❓ Frequently Asked Questions ({route.from} to {route.to})
@@ -338,7 +343,7 @@ export default async function DynamicRoutePage({
           </div>
         </section>
 
-        {/* Internal Link Footer for SEO Authority Flow */}
+        {/* Internal Link Footer */}
         <section className="bg-gradient-to-r from-slate-800 to-blue-950 border border-slate-700 p-6 rounded-2xl text-center">
           <h3 className="text-base font-bold text-white mb-2">Heading to another harbor or destination?</h3>
           <p className="text-xs text-slate-400 mb-4">Explore our complete list of private transfers across Bali island.</p>
